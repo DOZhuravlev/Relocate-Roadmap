@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD6349EA2A6FAB9300F2F1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349E92A6FAB9300F2F1AA /* AppDelegate.swift */; };
+		BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349EB2A6FAB9300F2F1AA /* SceneDelegate.swift */; };
+		BD6349EE2A6FAB9300F2F1AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */; };
+		BD6349F12A6FAB9300F2F1AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6349EF2A6FAB9300F2F1AA /* Main.storyboard */; };
+		BD6349F32A6FAB9400F2F1AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6349F22A6FAB9400F2F1AA /* Assets.xcassets */; };
+		BD6349F62A6FAB9400F2F1AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6349F42A6FAB9400F2F1AA /* LaunchScreen.storyboard */; };
+		BD634A012A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A002A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift */; };
+		BD634A0B2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A0A2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift */; };
+		BD634A0D2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A0C2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD6349FD2A6FAB9400F2F1AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD6349DE2A6FAB9300F2F1AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD6349E52A6FAB9300F2F1AA;
+			remoteInfo = "Relocate Roadmap";
+		};
+		BD634A072A6FAB9400F2F1AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD6349DE2A6FAB9300F2F1AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD6349E52A6FAB9300F2F1AA;
+			remoteInfo = "Relocate Roadmap";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BD6349E62A6FAB9300F2F1AA /* Relocate Roadmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocate Roadmap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD6349E92A6FAB9300F2F1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD6349EB2A6FAB9300F2F1AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD6349F02A6FAB9300F2F1AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD6349F22A6FAB9400F2F1AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD6349F52A6FAB9400F2F1AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD6349F72A6FAB9400F2F1AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD6349FC2A6FAB9400F2F1AA /* Relocate RoadmapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Relocate RoadmapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD634A002A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocate_RoadmapTests.swift; sourceTree = "<group>"; };
+		BD634A062A6FAB9400F2F1AA /* Relocate RoadmapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Relocate RoadmapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD634A0A2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocate_RoadmapUITests.swift; sourceTree = "<group>"; };
+		BD634A0C2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocate_RoadmapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD6349E32A6FAB9300F2F1AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD6349F92A6FAB9400F2F1AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD634A032A6FAB9400F2F1AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD6349DD2A6FAB9300F2F1AA = {
+			isa = PBXGroup;
+			children = (
+				BD6349E82A6FAB9300F2F1AA /* Relocate Roadmap */,
+				BD6349FF2A6FAB9400F2F1AA /* Relocate RoadmapTests */,
+				BD634A092A6FAB9400F2F1AA /* Relocate RoadmapUITests */,
+				BD6349E72A6FAB9300F2F1AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD6349E72A6FAB9300F2F1AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD6349E62A6FAB9300F2F1AA /* Relocate Roadmap.app */,
+				BD6349FC2A6FAB9400F2F1AA /* Relocate RoadmapTests.xctest */,
+				BD634A062A6FAB9400F2F1AA /* Relocate RoadmapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD6349E82A6FAB9300F2F1AA /* Relocate Roadmap */ = {
+			isa = PBXGroup;
+			children = (
+				BD6349E92A6FAB9300F2F1AA /* AppDelegate.swift */,
+				BD6349EB2A6FAB9300F2F1AA /* SceneDelegate.swift */,
+				BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */,
+				BD6349EF2A6FAB9300F2F1AA /* Main.storyboard */,
+				BD6349F22A6FAB9400F2F1AA /* Assets.xcassets */,
+				BD6349F42A6FAB9400F2F1AA /* LaunchScreen.storyboard */,
+				BD6349F72A6FAB9400F2F1AA /* Info.plist */,
+			);
+			path = "Relocate Roadmap";
+			sourceTree = "<group>";
+		};
+		BD6349FF2A6FAB9400F2F1AA /* Relocate RoadmapTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A002A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift */,
+			);
+			path = "Relocate RoadmapTests";
+			sourceTree = "<group>";
+		};
+		BD634A092A6FAB9400F2F1AA /* Relocate RoadmapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A0A2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift */,
+				BD634A0C2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift */,
+			);
+			path = "Relocate RoadmapUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD6349E52A6FAB9300F2F1AA /* Relocate Roadmap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD634A102A6FAB9400F2F1AA /* Build configuration list for PBXNativeTarget "Relocate Roadmap" */;
+			buildPhases = (
+				BD6349E22A6FAB9300F2F1AA /* Sources */,
+				BD6349E32A6FAB9300F2F1AA /* Frameworks */,
+				BD6349E42A6FAB9300F2F1AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Relocate Roadmap";
+			productName = "Relocate Roadmap";
+			productReference = BD6349E62A6FAB9300F2F1AA /* Relocate Roadmap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD6349FB2A6FAB9400F2F1AA /* Relocate RoadmapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD634A132A6FAB9400F2F1AA /* Build configuration list for PBXNativeTarget "Relocate RoadmapTests" */;
+			buildPhases = (
+				BD6349F82A6FAB9400F2F1AA /* Sources */,
+				BD6349F92A6FAB9400F2F1AA /* Frameworks */,
+				BD6349FA2A6FAB9400F2F1AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD6349FE2A6FAB9400F2F1AA /* PBXTargetDependency */,
+			);
+			name = "Relocate RoadmapTests";
+			productName = "Relocate RoadmapTests";
+			productReference = BD6349FC2A6FAB9400F2F1AA /* Relocate RoadmapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BD634A052A6FAB9400F2F1AA /* Relocate RoadmapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD634A162A6FAB9400F2F1AA /* Build configuration list for PBXNativeTarget "Relocate RoadmapUITests" */;
+			buildPhases = (
+				BD634A022A6FAB9400F2F1AA /* Sources */,
+				BD634A032A6FAB9400F2F1AA /* Frameworks */,
+				BD634A042A6FAB9400F2F1AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD634A082A6FAB9400F2F1AA /* PBXTargetDependency */,
+			);
+			name = "Relocate RoadmapUITests";
+			productName = "Relocate RoadmapUITests";
+			productReference = BD634A062A6FAB9400F2F1AA /* Relocate RoadmapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD6349DE2A6FAB9300F2F1AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					BD6349E52A6FAB9300F2F1AA = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					BD6349FB2A6FAB9400F2F1AA = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = BD6349E52A6FAB9300F2F1AA;
+					};
+					BD634A052A6FAB9400F2F1AA = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = BD6349E52A6FAB9300F2F1AA;
+					};
+				};
+			};
+			buildConfigurationList = BD6349E12A6FAB9300F2F1AA /* Build configuration list for PBXProject "Relocate Roadmap" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD6349DD2A6FAB9300F2F1AA;
+			productRefGroup = BD6349E72A6FAB9300F2F1AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD6349E52A6FAB9300F2F1AA /* Relocate Roadmap */,
+				BD6349FB2A6FAB9400F2F1AA /* Relocate RoadmapTests */,
+				BD634A052A6FAB9400F2F1AA /* Relocate RoadmapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD6349E42A6FAB9300F2F1AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD6349F62A6FAB9400F2F1AA /* LaunchScreen.storyboard in Resources */,
+				BD6349F32A6FAB9400F2F1AA /* Assets.xcassets in Resources */,
+				BD6349F12A6FAB9300F2F1AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD6349FA2A6FAB9400F2F1AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD634A042A6FAB9400F2F1AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD6349E22A6FAB9300F2F1AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD6349EE2A6FAB9300F2F1AA /* ViewController.swift in Sources */,
+				BD6349EA2A6FAB9300F2F1AA /* AppDelegate.swift in Sources */,
+				BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD6349F82A6FAB9400F2F1AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD634A012A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD634A022A6FAB9400F2F1AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD634A0D2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift in Sources */,
+				BD634A0B2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD6349FE2A6FAB9400F2F1AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD6349E52A6FAB9300F2F1AA /* Relocate Roadmap */;
+			targetProxy = BD6349FD2A6FAB9400F2F1AA /* PBXContainerItemProxy */;
+		};
+		BD634A082A6FAB9400F2F1AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD6349E52A6FAB9300F2F1AA /* Relocate Roadmap */;
+			targetProxy = BD634A072A6FAB9400F2F1AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BD6349EF2A6FAB9300F2F1AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD6349F02A6FAB9300F2F1AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD6349F42A6FAB9400F2F1AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD6349F52A6FAB9400F2F1AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD634A0E2A6FAB9400F2F1AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD634A0F2A6FAB9400F2F1AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD634A112A6FAB9400F2F1AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LKXH9JRFP8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Relocate Roadmap/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Relocate-Roadmap";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD634A122A6FAB9400F2F1AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LKXH9JRFP8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Relocate Roadmap/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Relocate-Roadmap";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BD634A142A6FAB9400F2F1AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LKXH9JRFP8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Relocate-RoadmapTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Relocate Roadmap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Relocate Roadmap";
+			};
+			name = Debug;
+		};
+		BD634A152A6FAB9400F2F1AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LKXH9JRFP8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Relocate-RoadmapTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Relocate Roadmap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Relocate Roadmap";
+			};
+			name = Release;
+		};
+		BD634A172A6FAB9400F2F1AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LKXH9JRFP8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Relocate-RoadmapUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Relocate Roadmap";
+			};
+			name = Debug;
+		};
+		BD634A182A6FAB9400F2F1AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LKXH9JRFP8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Relocate-RoadmapUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Relocate Roadmap";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD6349E12A6FAB9300F2F1AA /* Build configuration list for PBXProject "Relocate Roadmap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD634A0E2A6FAB9400F2F1AA /* Debug */,
+				BD634A0F2A6FAB9400F2F1AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD634A102A6FAB9400F2F1AA /* Build configuration list for PBXNativeTarget "Relocate Roadmap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD634A112A6FAB9400F2F1AA /* Debug */,
+				BD634A122A6FAB9400F2F1AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD634A132A6FAB9400F2F1AA /* Build configuration list for PBXNativeTarget "Relocate RoadmapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD634A142A6FAB9400F2F1AA /* Debug */,
+				BD634A152A6FAB9400F2F1AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD634A162A6FAB9400F2F1AA /* Build configuration list for PBXNativeTarget "Relocate RoadmapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD634A172A6FAB9400F2F1AA /* Debug */,
+				BD634A182A6FAB9400F2F1AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD6349DE2A6FAB9300F2F1AA /* Project object */;
+}
