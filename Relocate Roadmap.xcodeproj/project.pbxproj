@@ -15,6 +15,22 @@
 		BD634A012A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A002A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift */; };
 		BD634A0B2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A0A2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift */; };
 		BD634A0D2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A0C2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift */; };
+		BD634A212A6FFFF500F2F1AA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A202A6FFFF500F2F1AA /* ViewModel.swift */; };
+		BD634A242A7000F600F2F1AA /* NextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A232A7000F500F2F1AA /* NextVC.swift */; };
+		BD634A272A70044F00F2F1AA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD634A262A70044F00F2F1AA /* SnapKit */; };
+		BD634A2F2A705BA700F2F1AA /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A2E2A705BA700F2F1AA /* CustomFonts.swift */; };
+		BD634A302A705CAC00F2F1AA /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD634A292A705AA100F2F1AA /* Montserrat-SemiBold.ttf */; };
+		BD634A312A705CAF00F2F1AA /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD634A2C2A705B2E00F2F1AA /* Roboto-Medium.ttf */; };
+		BD634A322A705D2200F2F1AA /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD634A2D2A705B6100F2F1AA /* Montserrat-Regular.ttf */; };
+		BD634A332A705D2500F2F1AA /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD634A2B2A705AE200F2F1AA /* Poppins-Bold.ttf */; };
+		BD634A342A705D2800F2F1AA /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD634A2A2A705AC400F2F1AA /* Montserrat-Bold.ttf */; };
+		BD634A352A705D2B00F2F1AA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD634A282A705A7B00F2F1AA /* Roboto-Regular.ttf */; };
+		BD634A382A70652C00F2F1AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A372A70652C00F2F1AA /* Colors.swift */; };
+		BD634A3C2A706EA400F2F1AA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A3B2A706EA400F2F1AA /* CustomButton.swift */; };
+		BD634A402A70EC7A00F2F1AA /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A3F2A70EC7A00F2F1AA /* PrimaryButtonStyle.swift */; };
+		BD634A422A71048E00F2F1AA /* HelpButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A412A71048E00F2F1AA /* HelpButtonStyle.swift */; };
+		BD634A442A71049D00F2F1AA /* SearchButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A432A71049D00F2F1AA /* SearchButtonStyle.swift */; };
+		BD634A472A7129AA00F2F1AA /* MediumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A462A7129AA00F2F1AA /* MediumButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +63,21 @@
 		BD634A062A6FAB9400F2F1AA /* Relocate RoadmapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Relocate RoadmapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD634A0A2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocate_RoadmapUITests.swift; sourceTree = "<group>"; };
 		BD634A0C2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocate_RoadmapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BD634A202A6FFFF500F2F1AA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BD634A232A7000F500F2F1AA /* NextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextVC.swift; sourceTree = "<group>"; };
+		BD634A282A705A7B00F2F1AA /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		BD634A292A705AA100F2F1AA /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		BD634A2A2A705AC400F2F1AA /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		BD634A2B2A705AE200F2F1AA /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		BD634A2C2A705B2E00F2F1AA /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		BD634A2D2A705B6100F2F1AA /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		BD634A2E2A705BA700F2F1AA /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		BD634A372A70652C00F2F1AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BD634A3B2A706EA400F2F1AA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		BD634A3F2A70EC7A00F2F1AA /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		BD634A412A71048E00F2F1AA /* HelpButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButtonStyle.swift; sourceTree = "<group>"; };
+		BD634A432A71049D00F2F1AA /* SearchButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButtonStyle.swift; sourceTree = "<group>"; };
+		BD634A462A7129AA00F2F1AA /* MediumButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD634A272A70044F00F2F1AA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +160,7 @@
 		BD634A192A6FB23500F2F1AA /* Presentation modules */ = {
 			isa = PBXGroup;
 			children = (
-				BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */,
+				BD634A222A6FFFF900F2F1AA /* ChoiseRelocation */,
 			);
 			path = "Presentation modules";
 			sourceTree = "<group>";
@@ -168,6 +200,10 @@
 		BD634A1E2A6FB27E00F2F1AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BD634A3D2A70EC3700F2F1AA /* Configurations */,
+				BD634A3A2A706E7F00F2F1AA /* Components */,
+				BD634A392A706E6F00F2F1AA /* Colors */,
+				BD634A362A7063FD00F2F1AA /* Fonts */,
 				BD6349F22A6FAB9400F2F1AA /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -178,6 +214,73 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BD634A222A6FFFF900F2F1AA /* ChoiseRelocation */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A202A6FFFF500F2F1AA /* ViewModel.swift */,
+				BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */,
+				BD634A232A7000F500F2F1AA /* NextVC.swift */,
+			);
+			path = ChoiseRelocation;
+			sourceTree = "<group>";
+		};
+		BD634A362A7063FD00F2F1AA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A2E2A705BA700F2F1AA /* CustomFonts.swift */,
+				BD634A282A705A7B00F2F1AA /* Roboto-Regular.ttf */,
+				BD634A2B2A705AE200F2F1AA /* Poppins-Bold.ttf */,
+				BD634A2D2A705B6100F2F1AA /* Montserrat-Regular.ttf */,
+				BD634A2C2A705B2E00F2F1AA /* Roboto-Medium.ttf */,
+				BD634A2A2A705AC400F2F1AA /* Montserrat-Bold.ttf */,
+				BD634A292A705AA100F2F1AA /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BD634A392A706E6F00F2F1AA /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A372A70652C00F2F1AA /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		BD634A3A2A706E7F00F2F1AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A3B2A706EA400F2F1AA /* CustomButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BD634A3D2A70EC3700F2F1AA /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A452A71298900F2F1AA /* CustomButtonSize */,
+				BD634A3E2A70EC5100F2F1AA /* CustomButtonType */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		BD634A3E2A70EC5100F2F1AA /* CustomButtonType */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A3F2A70EC7A00F2F1AA /* PrimaryButtonStyle.swift */,
+				BD634A412A71048E00F2F1AA /* HelpButtonStyle.swift */,
+				BD634A432A71049D00F2F1AA /* SearchButtonStyle.swift */,
+			);
+			path = CustomButtonType;
+			sourceTree = "<group>";
+		};
+		BD634A452A71298900F2F1AA /* CustomButtonSize */ = {
+			isa = PBXGroup;
+			children = (
+				BD634A462A7129AA00F2F1AA /* MediumButton.swift */,
+			);
+			path = CustomButtonSize;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +299,9 @@
 			dependencies = (
 			);
 			name = "Relocate Roadmap";
+			packageProductDependencies = (
+				BD634A262A70044F00F2F1AA /* SnapKit */,
+			);
 			productName = "Relocate Roadmap";
 			productReference = BD6349E62A6FAB9300F2F1AA /* Relocate Roadmap.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +374,9 @@
 				Base,
 			);
 			mainGroup = BD6349DD2A6FAB9300F2F1AA;
+			packageReferences = (
+				BD634A252A70044F00F2F1AA /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = BD6349E72A6FAB9300F2F1AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,8 +393,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD634A312A705CAF00F2F1AA /* Roboto-Medium.ttf in Resources */,
+				BD634A332A705D2500F2F1AA /* Poppins-Bold.ttf in Resources */,
+				BD634A352A705D2B00F2F1AA /* Roboto-Regular.ttf in Resources */,
+				BD634A302A705CAC00F2F1AA /* Montserrat-SemiBold.ttf in Resources */,
 				BD6349F62A6FAB9400F2F1AA /* LaunchScreen.storyboard in Resources */,
+				BD634A322A705D2200F2F1AA /* Montserrat-Regular.ttf in Resources */,
 				BD6349F32A6FAB9400F2F1AA /* Assets.xcassets in Resources */,
+				BD634A342A705D2800F2F1AA /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,8 +425,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD634A422A71048E00F2F1AA /* HelpButtonStyle.swift in Sources */,
+				BD634A402A70EC7A00F2F1AA /* PrimaryButtonStyle.swift in Sources */,
 				BD6349EE2A6FAB9300F2F1AA /* ViewController.swift in Sources */,
 				BD6349EA2A6FAB9300F2F1AA /* AppDelegate.swift in Sources */,
+				BD634A212A6FFFF500F2F1AA /* ViewModel.swift in Sources */,
+				BD634A442A71049D00F2F1AA /* SearchButtonStyle.swift in Sources */,
+				BD634A472A7129AA00F2F1AA /* MediumButton.swift in Sources */,
+				BD634A382A70652C00F2F1AA /* Colors.swift in Sources */,
+				BD634A3C2A706EA400F2F1AA /* CustomButton.swift in Sources */,
+				BD634A242A7000F600F2F1AA /* NextVC.swift in Sources */,
+				BD634A2F2A705BA700F2F1AA /* CustomFonts.swift in Sources */,
 				BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,6 +770,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BD634A252A70044F00F2F1AA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD634A262A70044F00F2F1AA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD634A252A70044F00F2F1AA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD6349DE2A6FAB9300F2F1AA /* Project object */;
 }
