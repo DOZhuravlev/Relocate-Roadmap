@@ -35,23 +35,24 @@ final class ViewController: UIViewController {
         label.text = "Выберите:"
         label.font = CustomFonts.PoppinsBold.font(size: 30)
         label.textColor = Colors.textBlack
-
         return label
     }()
 
     private let findPartnerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Выберите:"
-        label.font = UIFont(name: "", size: 20)
-
+        label.text = "Ищу партнера:"
+        label.font = CustomFonts.PoppinsBold.font(size: 18)
+        label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
 
     private let alreadyRelocatedLabel: UILabel = {
         let label = UILabel()
-        label.text = "Выберите:"
-        label.font = UIFont(name: "Poppins-Bold", size: 30)
-
+        label.text = "Релоцировался:"
+        label.font = CustomFonts.PoppinsBold.font(size: 18)
+        label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
 
@@ -74,8 +75,15 @@ final class ViewController: UIViewController {
     }
 
     private func setupBehavior() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(findPartnerImageViewTapped))
+        findPartnerImageView.isUserInteractionEnabled = true
+        findPartnerImageView.addGestureRecognizer(tapGesture)
 
-        //отработка кнопок
+    }
+
+    @objc private func findPartnerImageViewTapped() {
+        let nextVC = NextVC()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
     private func setupLayout() {
@@ -95,8 +103,23 @@ final class ViewController: UIViewController {
 
         choiceLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.top.equalTo(view).offset(200)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
         }
+
+        findPartnerLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(findPartnerImageView.snp.top).offset(-10)
+            make.leading.equalTo(findPartnerImageView.snp.leading).offset(0)
+            make.trailing.equalTo(findPartnerImageView.snp.trailing).offset(0)
+
+        }
+
+        alreadyRelocatedLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(alreadyRelocatedImageView.snp.top).offset(-10)
+            make.leading.equalTo(alreadyRelocatedImageView.snp.leading).offset(0)
+            make.trailing.equalTo(alreadyRelocatedImageView.snp.trailing).offset(0)
+        }
+
+
 
     }
 

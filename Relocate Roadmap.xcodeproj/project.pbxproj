@@ -31,6 +31,7 @@
 		BD634A422A71048E00F2F1AA /* HelpButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A412A71048E00F2F1AA /* HelpButtonStyle.swift */; };
 		BD634A442A71049D00F2F1AA /* SearchButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A432A71049D00F2F1AA /* SearchButtonStyle.swift */; };
 		BD634A472A7129AA00F2F1AA /* MediumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A462A7129AA00F2F1AA /* MediumButton.swift */; };
+		BD6896362A72504500561ACD /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6896352A72504500561ACD /* CustomSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		BD634A412A71048E00F2F1AA /* HelpButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButtonStyle.swift; sourceTree = "<group>"; };
 		BD634A432A71049D00F2F1AA /* SearchButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButtonStyle.swift; sourceTree = "<group>"; };
 		BD634A462A7129AA00F2F1AA /* MediumButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumButton.swift; sourceTree = "<group>"; };
+		BD6896352A72504500561ACD /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				BD634A202A6FFFF500F2F1AA /* ViewModel.swift */,
 				BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */,
 				BD634A232A7000F500F2F1AA /* NextVC.swift */,
+				BD6896352A72504500561ACD /* CustomSlider.swift */,
 			);
 			path = ChoiseRelocation;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				BD634A382A70652C00F2F1AA /* Colors.swift in Sources */,
 				BD634A3C2A706EA400F2F1AA /* CustomButton.swift in Sources */,
 				BD634A242A7000F600F2F1AA /* NextVC.swift in Sources */,
+				BD6896362A72504500561ACD /* CustomSlider.swift in Sources */,
 				BD634A2F2A705BA700F2F1AA /* CustomFonts.swift in Sources */,
 				BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */,
 			);
