@@ -14,24 +14,21 @@ struct PrimaryButtonType: CustomButtonType {
 
 }
 
-
 struct PrimaryTypeStandardConfiguration: CustomButtonConfiguration {
-    let backgroundColor: UIColor = .systemGreen
-    let titleColor: UIColor = .label
-    let tintColor: UIColor = .black
+    let backgroundColor: UIColor? = UIColor(red: 0, green: 0.81, blue: 0.79, alpha: 1)
+    let titleColor: UIColor = .white
+    let tintColor: UIColor = .white
+    let font: UIFont = CustomFonts.PoppinsBold.font(size: 16) ?? UIFont.systemFont(ofSize: 16)
 }
 
-
 struct PrimaryTypePressedConfiguration: CustomButtonConfiguration {
-    let backgroundColor: UIColor = .white
+    let backgroundColor: UIColor? = .white
     let titleColor: UIColor = .label
     let tintColor: UIColor = .red
+    let font: UIFont = CustomFonts.PoppinsBold.font(size: 16) ?? UIFont.systemFont(ofSize: 16)
 }
 
 extension CustomButtonType where Self == PrimaryButtonType {
     static var primary: CustomButtonType { PrimaryButtonType() }
 }
-
-
-// PrimaryStyle - HelpStyle - SearchStyle - 3 файла будет разных кнопок(в каждом свои состяния)
 

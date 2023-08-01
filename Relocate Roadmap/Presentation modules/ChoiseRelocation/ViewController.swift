@@ -21,7 +21,7 @@ final class ViewController: UIViewController {
         return view
     }()
 
-    private let alreadyRelocatedImageView: UIImageView = {
+    @objc private let alreadyRelocatedImageView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .blue
         view.image = UIImage(named: "elephant")
@@ -56,9 +56,11 @@ final class ViewController: UIViewController {
         return label
     }()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         setupSubviews()
         setupBehavior()
         setupLayout()
@@ -68,10 +70,10 @@ final class ViewController: UIViewController {
     private func setupSubviews() {
         view.addSubview(findPartnerImageView)
         view.addSubview(alreadyRelocatedImageView)
-
         view.addSubview(choiceLabel)
         view.addSubview(findPartnerLabel)
         view.addSubview(alreadyRelocatedLabel)
+        
     }
 
     private func setupBehavior() {
@@ -79,12 +81,24 @@ final class ViewController: UIViewController {
         findPartnerImageView.isUserInteractionEnabled = true
         findPartnerImageView.addGestureRecognizer(tapGesture)
 
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(alreadyRelocatedImageViewTapped))
+        alreadyRelocatedImageView.isUserInteractionEnabled = true
+        alreadyRelocatedImageView.addGestureRecognizer(tapGesture2)
+
     }
+
+    @objc private func alreadyRelocatedImageViewTapped() {
+        let nextVC = ChooseCountryViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+
 
     @objc private func findPartnerImageViewTapped() {
         let nextVC = NextVC()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+
+    // MARK: - Layout
 
     private func setupLayout() {
         findPartnerImageView.snp.makeConstraints { make in

@@ -101,7 +101,7 @@ final class NextVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
 
         setupSubviews()
         setupLayout()
@@ -161,7 +161,8 @@ final class NextVC: UIViewController {
     @objc private func search() {
         print("SEARCH START")
 
-
+        let nextVC = ChoosePartnerViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
     private func setupSlider() {

@@ -48,10 +48,11 @@ final class CustomSlider: UIControl {
             setupLayers()
         }
 
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            setupLayers()
-        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+       
 
         private func setupLayers() {
             // Настройка внешнего вида слайдера
