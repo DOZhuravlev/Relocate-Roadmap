@@ -76,7 +76,7 @@ final class RegistrationViewController: UIViewController {
 
     private lazy var registerButton: CustomButton = {
         let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) { [weak self] in
-            let nextVC = ViewController()
+            let nextVC = ChoosingRelocationOptionViewController()
             self?.navigationController?.pushViewController(nextVC, animated: true)
         }
         return button

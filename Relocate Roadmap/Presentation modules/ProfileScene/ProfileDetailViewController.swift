@@ -8,17 +8,16 @@
 import UIKit
 import SnapKit
 
-class ProfileDetailViewController: UIViewController {
+final class ProfileDetailViewController: UIViewController {
 
     // MARK: - Properties
 
     var profile: Profile?
 
-    // MARK: - UI Components
+    // MARK: - Outlets
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
 
@@ -26,14 +25,12 @@ class ProfileDetailViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -41,7 +38,6 @@ class ProfileDetailViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -54,26 +50,16 @@ class ProfileDetailViewController: UIViewController {
         return button
     }()
 
-
-    let bbb = CustomButton(title: "Google", type: .primary, state: .standard, size: .medium) {
-        print("Aa")
-        
-    }
-
-
-    
-
-    // MARK: - View Life Cycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
         populateData()
         chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
     }
 
-    // MARK: - UI Setup
+    // MARK: - Setup
 
     private func setupUI() {
         view.backgroundColor = .white
@@ -83,9 +69,7 @@ class ProfileDetailViewController: UIViewController {
         scrollView.addSubview(nameLabel)
         scrollView.addSubview(descriptionLabel)
         scrollView.addSubview(chatButton)
-        scrollView.addSubview(bbb)
 
-        // Set up constraints using SnapKit
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -114,14 +98,6 @@ class ProfileDetailViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.width.equalTo(200)
         }
-
-        bbb.snp.makeConstraints { make in
-            make.top.equalTo(chatButton.snp.bottom).offset(200)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(200)
-        }
-
-
     }
 
     // MARK: - Data Population

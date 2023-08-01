@@ -65,7 +65,7 @@ final class LoginViewController: UIViewController {
 
     private lazy var submitButton: CustomButton = {
         let button = CustomButton(title: "Войти", type: .primary, state: .standard, size: .medium) { [weak self] in
-            let nextVC = ViewController()
+            let nextVC = ChoosingRelocationOptionViewController()
             self?.navigationController?.pushViewController(nextVC, animated: true)
         }
         return button
@@ -109,7 +109,7 @@ final class LoginViewController: UIViewController {
     }
 
     @objc func registerButtonPressed() {
-        let nextVC = ViewController()
+        let nextVC = ChoosingRelocationOptionViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 

@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class setupFindPartnerViewController: UIViewController {
+final class SetupFindPartnerViewController: UIViewController {
+
+    // MARK: - Outlets
 
     private let countries = ["Россия", "Грузия", "Турция", "Сербия"]
     private let minAge = 18
@@ -99,6 +101,8 @@ final class setupFindPartnerViewController: UIViewController {
         return button
     }()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -149,13 +153,15 @@ final class setupFindPartnerViewController: UIViewController {
 
     }
 
-    private func setupBehavior() {
+    // MARK: - Action
 
+    private func setupBehavior() {
+        //TODO:
 
     }
 
     @objc private func findPartnerImageViewTapped() {
-
+        //TODO:
     }
 
     @objc private func search() {
@@ -164,6 +170,8 @@ final class setupFindPartnerViewController: UIViewController {
         let nextVC = ChoosePartnerViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+
+    // MARK: - Setup
 
     private func setupSlider() {
         ageSlider.minimumValue = CGFloat(minAge)
@@ -191,13 +199,14 @@ final class setupFindPartnerViewController: UIViewController {
       }
 
     @objc private func habitationSwitchValueChanged() {
-        print("habitationSwitchValueChanged CHANGED")
+        print(#function)
     }
 
     @objc private func leisureSwitchValueChanged() {
-        print("leisureSwitchValueChanged CHANGED")
+        print(#function)
     }
 
+    // MARK: - Layout
 
     private func setupLayout() {
         choiceLabel.snp.makeConstraints { make in
@@ -269,19 +278,10 @@ final class setupFindPartnerViewController: UIViewController {
             make.top.equalTo(leisureLabel.snp.bottom).offset(30)
             make.width.equalTo(200)
         }
-
-
-
-
-//        view.addSubview(habitationLabel)
-//        view.addSubview(habitationSwitch)
-//        view.addSubview(leisureLabel)
-//        view.addSubview(leisureSwitch)
     }
-
 }
 
-extension setupFindPartnerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension SetupFindPartnerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }

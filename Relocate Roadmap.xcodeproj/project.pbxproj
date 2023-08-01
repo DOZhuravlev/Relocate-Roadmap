@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		BD6349EA2A6FAB9300F2F1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349E92A6FAB9300F2F1AA /* AppDelegate.swift */; };
 		BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349EB2A6FAB9300F2F1AA /* SceneDelegate.swift */; };
-		BD6349EE2A6FAB9300F2F1AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */; };
+		BD6349EE2A6FAB9300F2F1AA /* ChoosingRelocationOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349ED2A6FAB9300F2F1AA /* ChoosingRelocationOptionViewController.swift */; };
 		BD6349F32A6FAB9400F2F1AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6349F22A6FAB9400F2F1AA /* Assets.xcassets */; };
 		BD6349F62A6FAB9400F2F1AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6349F42A6FAB9400F2F1AA /* LaunchScreen.storyboard */; };
 		BD634A012A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A002A6FAB9400F2F1AA /* Relocate_RoadmapTests.swift */; };
 		BD634A0B2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A0A2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift */; };
 		BD634A0D2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A0C2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift */; };
 		BD634A212A6FFFF500F2F1AA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A202A6FFFF500F2F1AA /* ViewModel.swift */; };
-		BD634A242A7000F600F2F1AA /* NextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A232A7000F500F2F1AA /* NextVC.swift */; };
+		BD634A242A7000F600F2F1AA /* SetupFindPartnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A232A7000F500F2F1AA /* SetupFindPartnerViewController.swift */; };
 		BD634A272A70044F00F2F1AA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD634A262A70044F00F2F1AA /* SnapKit */; };
 		BD634A2F2A705BA700F2F1AA /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD634A2E2A705BA700F2F1AA /* CustomFonts.swift */; };
 		BD634A302A705CAC00F2F1AA /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD634A292A705AA100F2F1AA /* Montserrat-SemiBold.ttf */; };
@@ -70,7 +70,7 @@
 		BD6349E62A6FAB9300F2F1AA /* Relocate Roadmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocate Roadmap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6349E92A6FAB9300F2F1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD6349EB2A6FAB9300F2F1AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD6349ED2A6FAB9300F2F1AA /* ChoosingRelocationOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingRelocationOptionViewController.swift; sourceTree = "<group>"; };
 		BD6349F22A6FAB9400F2F1AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD6349F52A6FAB9400F2F1AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD6349F72A6FAB9400F2F1AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		BD634A0A2A6FAB9400F2F1AA /* Relocate_RoadmapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocate_RoadmapUITests.swift; sourceTree = "<group>"; };
 		BD634A0C2A6FAB9400F2F1AA /* Relocate_RoadmapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocate_RoadmapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BD634A202A6FFFF500F2F1AA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		BD634A232A7000F500F2F1AA /* NextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextVC.swift; sourceTree = "<group>"; };
+		BD634A232A7000F500F2F1AA /* SetupFindPartnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFindPartnerViewController.swift; sourceTree = "<group>"; };
 		BD634A282A705A7B00F2F1AA /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		BD634A292A705AA100F2F1AA /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		BD634A2A2A705AC400F2F1AA /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -259,8 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				BD634A202A6FFFF500F2F1AA /* ViewModel.swift */,
-				BD6349ED2A6FAB9300F2F1AA /* ViewController.swift */,
-				BD634A232A7000F500F2F1AA /* NextVC.swift */,
+				BD6349ED2A6FAB9300F2F1AA /* ChoosingRelocationOptionViewController.swift */,
+				BD634A232A7000F500F2F1AA /* SetupFindPartnerViewController.swift */,
 				BD6896352A72504500561ACD /* CustomSlider.swift */,
 				BDCEC0CD2A740D110008CA34 /* ChooseCountryViewController.swift */,
 			);
@@ -564,7 +564,7 @@
 				BD634A422A71048E00F2F1AA /* HelpButtonStyle.swift in Sources */,
 				BDCEC0D12A7795D00008CA34 /* SecondaryButtonStyle.swift in Sources */,
 				BD634A402A70EC7A00F2F1AA /* PrimaryButtonStyle.swift in Sources */,
-				BD6349EE2A6FAB9300F2F1AA /* ViewController.swift in Sources */,
+				BD6349EE2A6FAB9300F2F1AA /* ChoosingRelocationOptionViewController.swift in Sources */,
 				BDCEC0C82A74035F0008CA34 /* LoginViewController.swift in Sources */,
 				BD68963C2A72B7E100561ACD /* ProfileTableViewCell.swift in Sources */,
 				BD8ABFF72A73C46B00382D63 /* CustomTextField.swift in Sources */,
@@ -578,7 +578,7 @@
 				BDCEC0CC2A7406E10008CA34 /* OnboardingViewController.swift in Sources */,
 				BD634A3C2A706EA400F2F1AA /* CustomButton.swift in Sources */,
 				BD8ABFEF2A73050F00382D63 /* ChatViewController.swift in Sources */,
-				BD634A242A7000F600F2F1AA /* NextVC.swift in Sources */,
+				BD634A242A7000F600F2F1AA /* SetupFindPartnerViewController.swift in Sources */,
 				BDCEC0CE2A740D110008CA34 /* ChooseCountryViewController.swift in Sources */,
 				BD6896362A72504500561ACD /* CustomSlider.swift in Sources */,
 				BD68963F2A72BF3D00561ACD /* ProfileDetailViewController.swift in Sources */,

@@ -21,7 +21,9 @@ class ChatViewController: UIViewController {
 
     var messages: [Message] = [Message(sender: "STASON", text: "Привет как дела?", timestamp: Date(), isSentByCurrentUser: false)]
 
-    // MARK: - UI Components
+    // MARK: - Outlets
+
+    private var tableViewBottomConstraint: Constraint?
 
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -32,29 +34,27 @@ class ChatViewController: UIViewController {
     }()
 
     private let messageInputTextView: UITextView = {
-            let textView = UITextView()
-            textView.text = "Введите сообщение..."
-            textView.font = UIFont.systemFont(ofSize: 17)
-            textView.layer.cornerRadius = 8
-            textView.layer.borderWidth = 1
-            textView.layer.borderColor = UIColor.gray.cgColor
-            textView.isScrollEnabled = false
-            textView.translatesAutoresizingMaskIntoConstraints = false
-            return textView
-        }()
+        let textView = UITextView()
+        textView.text = "Введите сообщение..."
+        textView.font = UIFont.systemFont(ofSize: 17)
+        textView.layer.cornerRadius = 8
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.gray.cgColor
+        textView.isScrollEnabled = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    }()
 
     private let sendButton: UIButton = {
         let button = UIButton(type: .custom)
-        let sendIcon = UIImage(named: "iconSend") // Предполагаем, что у вас есть изображение "send_icon" в ресурсах
+        let sendIcon = UIImage(named: "iconSend")
         button.setImage(sendIcon, for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
-    private var tableViewBottomConstraint: Constraint?
-
-    // MARK: - View Life Cycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,7 @@ class ChatViewController: UIViewController {
 
     }
 
-    // MARK: - UI Setup
+    // MARK: - Setup
 
     private func setupUI() {
         view.backgroundColor = .white
@@ -79,7 +79,6 @@ class ChatViewController: UIViewController {
         view.addSubview(messageInputTextView)
         view.addSubview(sendButton)
 
-        // Set up constraints using SnapKit
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
@@ -96,7 +95,7 @@ class ChatViewController: UIViewController {
         sendButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-16)
-            make.width.height.equalTo(40) // Здесь устанавливаем равные значения ширины и высоты для получения круглой формы
+            make.width.height.equalTo(40)
         }
     }
 
@@ -107,7 +106,7 @@ class ChatViewController: UIViewController {
         tableView.keyboardDismissMode = .interactive
     }
 
-    // MARK: - Button Actions
+    // MARK: - Actions
 
     @objc private func sendButtonTapped() {
         guard let text = messageInputTextView.text, !text.isEmpty else {
@@ -118,36 +117,34 @@ class ChatViewController: UIViewController {
         addMessage(newMessage)
         print(newMessage)
 
-        // Clear the message input field after sending
         messageInputTextView.text = nil
     }
 
 
     @objc private func scrollToBottom() {
-            if tableView.numberOfSections > 0, tableView.numberOfRows(inSection: tableView.numberOfSections - 1) > 0 {
-                let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: tableView.numberOfSections - 1) - 1, section: tableView.numberOfSections - 1)
-                tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-            }
+        if tableView.numberOfSections > 0, tableView.numberOfRows(inSection: tableView.numberOfSections - 1) > 0 {
+            let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: tableView.numberOfSections - 1) - 1, section: tableView.numberOfSections - 1)
+            tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
         }
+    }
 
 
     // MARK: - Data Handling
 
     func addMessage(_ message: Message) {
-            messages.append(message)
-            tableView.reloadData()
-            // Scroll to the bottom to show the latest message
-            let indexPath = IndexPath(row: messages.count - 1, section: 0)
-            tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        }
+        messages.append(message)
+        tableView.reloadData()
+        // Scroll to the bottom to show the latest message
+        let indexPath = IndexPath(row: messages.count - 1, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
 
     // MARK: - Keyboard Handling
 
-        private func setupKeyboardNotifications() {
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        }
-
+    private func setupKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 
     @objc private func keyboardWillShow(_ notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
@@ -157,7 +154,6 @@ class ChatViewController: UIViewController {
 
         let keyboardHeight = keyboardFrame.size.height
 
-        // Animate the constraint change using SnapKit
         tableView.snp.updateConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-keyboardHeight)
         }
@@ -172,7 +168,6 @@ class ChatViewController: UIViewController {
             return
         }
 
-        // Animate the constraint change using SnapKit
         tableView.snp.updateConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
@@ -182,7 +177,6 @@ class ChatViewController: UIViewController {
         }
     }
 
-
 }
 
 extension ChatViewController: UITableViewDataSource {
@@ -191,15 +185,14 @@ extension ChatViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
-            let message = messages[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+        let message = messages[indexPath.row]
 
-            // Determine the alignment of the message based on the sender
         let alignment: MessageCell.MessageAlignment = message.isSentByCurrentUser ? .right : .left
 
-            cell.configure(with: message, alignment: alignment)
-            return cell
-        }
+        cell.configure(with: message, alignment: alignment)
+        return cell
+    }
 }
 
 // MARK: - UITableViewDelegate
