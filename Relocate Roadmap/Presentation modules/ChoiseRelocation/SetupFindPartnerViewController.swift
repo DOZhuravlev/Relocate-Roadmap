@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NextVC: UIViewController {
+final class setupFindPartnerViewController: UIViewController {
 
     private let countries = ["Россия", "Грузия", "Турция", "Сербия"]
     private let minAge = 18
@@ -281,7 +281,7 @@ final class NextVC: UIViewController {
 
 }
 
-extension NextVC: UIPickerViewDelegate, UIPickerViewDataSource {
+extension setupFindPartnerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }

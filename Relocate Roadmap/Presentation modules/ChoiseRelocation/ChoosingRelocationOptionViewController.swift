@@ -8,7 +8,7 @@
 import UIKit 
 import SnapKit
 
-final class ViewController: UIViewController {
+final class ChoosingRelocationOptionViewController: UIViewController {
 
     // MARK: - Outlets
 
@@ -94,7 +94,7 @@ final class ViewController: UIViewController {
 
 
     @objc private func findPartnerImageViewTapped() {
-        let nextVC = NextVC()
+        let nextVC = SetupFindPartnerViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
