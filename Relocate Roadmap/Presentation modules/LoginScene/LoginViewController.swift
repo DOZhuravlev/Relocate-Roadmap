@@ -65,6 +65,20 @@ final class LoginViewController: UIViewController {
 
     private lazy var submitButton: CustomButton = {
         let button = CustomButton(title: "Войти", type: .primary, state: .standard, size: .medium) { [weak self] in
+
+            AuthService.shared.login(email: self!.loginTextField.text!, password: self!.passwordTextField.text!) { result in
+                switch result {
+
+                case .success(let user):
+                    self!.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
+                    print(user.email)
+                case .failure(let error):
+                    self!.showAlert(title: "Ошибка", message: error.localizedDescription)
+                }
+            }
+
+
+
             let nextVC = ChoosingRelocationOptionViewController()
             self?.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -187,4 +201,14 @@ final class LoginViewController: UIViewController {
             }
         }
 
+}
+
+extension LoginViewController {
+
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }

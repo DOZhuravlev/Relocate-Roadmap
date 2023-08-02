@@ -52,7 +52,7 @@ final class RegistrationViewController: UIViewController {
 
     private let loginTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Логин"
+        textField.placeholder = "E-mail он же и логин"
         textField.borderStyle = .roundedRect
         return textField
     }()
@@ -76,6 +76,22 @@ final class RegistrationViewController: UIViewController {
 
     private lazy var registerButton: CustomButton = {
         let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) { [weak self] in
+
+            AuthService.shared.register(email: self!.loginTextField.text,
+                                        password: self!.passwordTextField.text,
+                                        confirmPassword: self!.passwordTextField.text) { result in
+                switch result {
+
+                case .success(let user):
+                    self!.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
+                    print(user.email)
+                case .failure(let error):
+                    self!.showAlert(title: "Ошибка", message: error.localizedDescription)
+                }
+            }
+
+
+
             let nextVC = ChoosingRelocationOptionViewController()
             self?.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -173,5 +189,15 @@ final class RegistrationViewController: UIViewController {
             make.width.equalTo(150)
             make.height.equalTo(40)
         }
+    }
+}
+
+extension RegistrationViewController {
+
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
