@@ -64,23 +64,9 @@ final class LoginViewController: UIViewController {
     }()
 
     private lazy var submitButton: CustomButton = {
-        let button = CustomButton(title: "Войти", type: .primary, state: .standard, size: .medium) { [weak self] in
-
-            AuthService.shared.login(email: self!.loginTextField.text!, password: self!.passwordTextField.text!) { result in
-                switch result {
-
-                case .success(let user):
-                    self!.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
-                    print(user.email)
-                case .failure(let error):
-                    self!.showAlert(title: "Ошибка", message: error.localizedDescription)
-                }
-            }
-
-
-
-            let nextVC = ChoosingRelocationOptionViewController()
-            self?.navigationController?.pushViewController(nextVC, animated: true)
+        let button = CustomButton(title: "Войти", type: .primary, state: .standard, size: .medium) {
+            self.authorization()
+            self.goToTheNextScreen()
         }
         return button
     }()
@@ -95,9 +81,9 @@ final class LoginViewController: UIViewController {
     }()
 
     private lazy var registerButton: CustomButton = {
-        let button = CustomButton(title: "Зарегистрироваться", type: .help, state: .standard, size: .small) { [weak self] in
+        let button = CustomButton(title: "Зарегистрироваться", type: .help, state: .standard, size: .small) {
             let nextVC = RegistrationViewController()
-            self?.navigationController?.pushViewController(nextVC, animated: true)
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
         return button
     }()
@@ -127,6 +113,24 @@ final class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
+    private func authorization() {
+        AuthService.shared.login(email: loginTextField.text, password: passwordTextField.text) { result in
+            switch result {
+            case .success(let user):
+                self.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
+                print("\(user.email ?? "")")
+            case .failure(let error):
+                self.showAlert(title: "Ошибка", message: error.localizedDescription)
+            }
+        }
+    }
+
+    private func goToTheNextScreen() {
+        let nextVC = ChoosingRelocationOptionViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+
+    // MARK: - Setup
 
         private func setupViews() {
             view.backgroundColor = .white
@@ -141,6 +145,8 @@ final class LoginViewController: UIViewController {
             view.addSubview(noAccountLabel)
             view.addSubview(registerButton)
         }
+
+    // MARK: - Layout
 
         private func setupConstraints() {
             titleLabel.snp.makeConstraints { make in

@@ -75,25 +75,9 @@ final class RegistrationViewController: UIViewController {
 
 
     private lazy var registerButton: CustomButton = {
-        let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) { [weak self] in
-
-            AuthService.shared.register(email: self!.loginTextField.text,
-                                        password: self!.passwordTextField.text,
-                                        confirmPassword: self!.passwordTextField.text) { result in
-                switch result {
-
-                case .success(let user):
-                    self!.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
-                    print(user.email)
-                case .failure(let error):
-                    self!.showAlert(title: "Ошибка", message: error.localizedDescription)
-                }
-            }
-
-
-
-            let nextVC = ChoosingRelocationOptionViewController()
-            self?.navigationController?.pushViewController(nextVC, animated: true)
+        let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) {
+            self.registration()
+            self.goToTheNextScreen()
         }
         return button
     }()
@@ -116,6 +100,26 @@ final class RegistrationViewController: UIViewController {
     @objc private func showHideButtonTapped() {
         passwordTextField.isSecureTextEntry.toggle()
         showHideButton.isSelected = !passwordTextField.isSecureTextEntry
+    }
+
+    private func registration() {
+        AuthService.shared.register(email: loginTextField.text,
+                                    password: passwordTextField.text,
+                                    confirmPassword: passwordTextField.text) { result in
+            switch result {
+            case .success(let user):
+                self.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
+                print("\(user.email ?? "")")
+            case .failure(let error):
+                self.showAlert(title: "Ошибка", message: error.localizedDescription)
+            }
+        }
+
+    }
+
+    private func goToTheNextScreen() {
+        let nextVC = ChoosingRelocationOptionViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
     // MARK: - Setup

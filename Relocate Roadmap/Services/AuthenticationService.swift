@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-class AuthService {
+final class AuthService {
 
     private let auth = Auth.auth()
     static let shared = AuthService()
