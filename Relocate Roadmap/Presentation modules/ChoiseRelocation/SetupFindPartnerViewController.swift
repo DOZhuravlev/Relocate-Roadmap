@@ -92,12 +92,11 @@ final class SetupFindPartnerViewController: UIViewController {
         return label
     }()
 
-    private let searchButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("ПОИСК", for: .normal)
-        button.tintColor = .red
-        button.backgroundColor = .systemGreen
-        button.layer.cornerRadius = 10
+    private lazy var searchButton: CustomButton = {
+        let button = CustomButton(title: "Поиск", type: .primary, state: .standard, size: .medium) {
+
+            self.goToTheNextScreen()
+        }
         return button
     }()
 
@@ -121,15 +120,13 @@ final class SetupFindPartnerViewController: UIViewController {
         fromAgeLabel.text = "\(minAge) лет"
         toAgeLabel.text = "\(maxAge) лет"
 
-        searchButton.addTarget(self, action: #selector(search), for: .touchUpInside)
-
         habitationSwitch.isOn = true
+        habitationSwitch.onTintColor = UIColor(red: 0, green: 0.81, blue: 0.79, alpha: 1)
         leisureSwitch.isOn = true
+        leisureSwitch.onTintColor = UIColor(red: 0, green: 0.81, blue: 0.79, alpha: 1)
 
         habitationSwitch.addTarget(self, action: #selector(habitationSwitchValueChanged), for: .valueChanged)
         leisureSwitch.addTarget(self, action: #selector(leisureSwitchValueChanged), for: .valueChanged)
-
-
     }
     
     // MARK: - Setup
@@ -164,9 +161,7 @@ final class SetupFindPartnerViewController: UIViewController {
         //TODO:
     }
 
-    @objc private func search() {
-        print("SEARCH START")
-
+    private func goToTheNextScreen() {
         let nextVC = ChoosePartnerViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -177,7 +172,7 @@ final class SetupFindPartnerViewController: UIViewController {
         ageSlider.minimumValue = CGFloat(minAge)
         ageSlider.maximumValue = CGFloat(maxAge)
         ageSlider.trackTintColor = Colors.textBlack
-        ageSlider.thumbTintColor = .red
+        ageSlider.thumbTintColor = UIColor(red: 0, green: 0.81, blue: 0.79, alpha: 1)
         ageSlider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
     }
 
@@ -275,8 +270,9 @@ final class SetupFindPartnerViewController: UIViewController {
 
         searchButton.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.top.equalTo(leisureLabel.snp.bottom).offset(30)
+            make.top.equalTo(leisureLabel.snp.bottom).offset(50)
             make.width.equalTo(200)
+            make.height.equalTo(40)
         }
     }
 }

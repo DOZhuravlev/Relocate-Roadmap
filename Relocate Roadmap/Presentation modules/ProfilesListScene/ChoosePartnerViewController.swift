@@ -12,8 +12,8 @@ final class ChoosePartnerViewController: UIViewController {
     // MARK: - Data Model
 
     let profiles = [
-        Profile(image: UIImage(named: "manyAnimals"), name: "John Doe", description: "В течение 3 месяцев"),
-        Profile(image: UIImage(named: "elephant"), name: "Jane Smith", description: "В ближайший месяц"),
+        Profile(image: UIImage(named: "1"), name: "John Doe", description: "В течение 3 месяцев"),
+        Profile(image: UIImage(named: "1"), name: "Jane Smith", description: "В ближайший месяц"),
     ]
 
     // MARK: - Outlets

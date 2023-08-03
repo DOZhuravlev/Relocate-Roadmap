@@ -28,17 +28,17 @@ final class AuthorizationViewController: UIViewController {
     }()
 
    private lazy var registrationButton: CustomButton = {
-        let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) { [weak self] in
+        let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) {
             let nextVC = RegistrationViewController()
-            self?.navigationController?.pushViewController(nextVC, animated: true)
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
         return button
     }()
 
     private lazy var authorizationButton: CustomButton = {
-        let  button = CustomButton(title: "Войти", type: .secondary, state: .standard, size: .medium, action: { [weak self] in
+        let  button = CustomButton(title: "Войти", type: .secondary, state: .standard, size: .medium, action: {
                 let nextVC = RegistrationViewController()
-                self?.navigationController?.pushViewController(LoginViewController(), animated: true)
+                self.navigationController?.pushViewController(LoginViewController(), animated: true)
         })
         return button
     }()

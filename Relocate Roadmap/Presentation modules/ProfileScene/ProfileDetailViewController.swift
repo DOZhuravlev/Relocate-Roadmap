@@ -41,12 +41,10 @@ final class ProfileDetailViewController: UIViewController {
         return label
     }()
 
-    private let chatButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Чат", for: .normal)
-        button.tintColor = .red
-        button.backgroundColor = .systemGreen
-        button.layer.cornerRadius = 10
+    private lazy var chatButton: CustomButton = {
+        let button = CustomButton(title: "Чат", type: .primary, state: .standard, size: .medium) {
+            self.goToTheNextScreen()
+        }
         return button
     }()
 
@@ -56,7 +54,6 @@ final class ProfileDetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         populateData()
-        chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
     }
 
     // MARK: - Setup
@@ -94,9 +91,10 @@ final class ProfileDetailViewController: UIViewController {
         }
 
         chatButton.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(100)
             make.centerX.equalToSuperview()
             make.width.equalTo(200)
+            make.height.equalTo(40)
         }
     }
 
@@ -109,7 +107,7 @@ final class ProfileDetailViewController: UIViewController {
         descriptionLabel.text = profile.description
     }
 
-    @objc func chatButtonPressed() {
+    private func goToTheNextScreen() {
         let vc = ChatViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

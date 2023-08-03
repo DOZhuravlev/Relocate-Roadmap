@@ -14,17 +14,17 @@ final class ChoosingRelocationOptionViewController: UIViewController {
 
     private let findPartnerImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .red
-        view.image = UIImage(named: "manyAnimals")
-        view.tintColor = .blue
+        view.backgroundColor = .white
+        view.image = UIImage(named: "2")
+        view.tintColor = .white
         view.layer.cornerRadius = 10
         return view
     }()
 
     @objc private let alreadyRelocatedImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .blue
-        view.image = UIImage(named: "elephant")
+        view.backgroundColor = .white
+        view.image = UIImage(named: "1")
         view.tintColor = .blue
         view.layer.cornerRadius = 10
         return view
