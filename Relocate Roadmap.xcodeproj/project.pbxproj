@@ -40,9 +40,13 @@
 		BD8ABFF52A73A67600382D63 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8ABFF42A73A67600382D63 /* AuthorizationViewController.swift */; };
 		BD8ABFF72A73C46B00382D63 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8ABFF62A73C46B00382D63 /* CustomTextField.swift */; };
 		BDB34AA32A7A4B3100CEB4E3 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AA22A7A4B3100CEB4E3 /* AuthenticationService.swift */; };
-		BDB34AA52A7A4E5800CEB4E3 /* RelocateUser in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AA42A7A4E5800CEB4E3 /* RelocateUser */; };
 		BDB34AA72A7A769D00CEB4E3 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AA62A7A769D00CEB4E3 /* Validators.swift */; };
 		BDB34AA92A7A795F00CEB4E3 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AA82A7A795F00CEB4E3 /* AuthError.swift */; };
+		BDB34AAB2A7C05E800CEB4E3 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AAA2A7C05E800CEB4E3 /* FirestoreService.swift */; };
+		BDB34AAE2A7C065B00CEB4E3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BDB34AAD2A7C065B00CEB4E3 /* FirebaseFirestore */; };
+		BDB34AB02A7CF08C00CEB4E3 /* UserTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AAF2A7CF08C00CEB4E3 /* UserTravel.swift */; };
+		BDB34AB22A7CF19500CEB4E3 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AB12A7CF19500CEB4E3 /* UserError.swift */; };
+		BDB34AB52A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AB42A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift */; };
 		BDCEC0C42A73D73D0008CA34 /* MediumTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0C32A73D73D0008CA34 /* MediumTextField.swift */; };
 		BDCEC0C62A73D8E60008CA34 /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0C52A73D8E60008CA34 /* PrimaryTextField.swift */; };
 		BDCEC0C82A74035F0008CA34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0C72A74035F0008CA34 /* LoginViewController.swift */; };
@@ -110,9 +114,12 @@
 		BD8ABFF42A73A67600382D63 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		BD8ABFF62A73C46B00382D63 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BDB34AA22A7A4B3100CEB4E3 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		BDB34AA42A7A4E5800CEB4E3 /* RelocateUser */ = {isa = PBXFileReference; lastKnownFileType = text; path = RelocateUser; sourceTree = "<group>"; };
 		BDB34AA62A7A769D00CEB4E3 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		BDB34AA82A7A795F00CEB4E3 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		BDB34AAA2A7C05E800CEB4E3 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		BDB34AAF2A7CF08C00CEB4E3 /* UserTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTravel.swift; sourceTree = "<group>"; };
+		BDB34AB12A7CF19500CEB4E3 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		BDB34AB42A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegistrationViewController.swift; sourceTree = "<group>"; };
 		BDCEC0C32A73D73D0008CA34 /* MediumTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumTextField.swift; sourceTree = "<group>"; };
 		BDCEC0C52A73D8E60008CA34 /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		BDCEC0C72A74035F0008CA34 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCEC0DB2A78E4C10008CA34 /* FirebaseAnalytics in Frameworks */,
+				BDB34AAE2A7C065B00CEB4E3 /* FirebaseFirestore in Frameworks */,
 				BDCEC0DD2A78E4C10008CA34 /* FirebaseAuth in Frameworks */,
 				BD634A272A70044F00F2F1AA /* SnapKit in Frameworks */,
 			);
@@ -159,6 +167,7 @@
 				BD6349FF2A6FAB9400F2F1AA /* Relocate RoadmapTests */,
 				BD634A092A6FAB9400F2F1AA /* Relocate RoadmapUITests */,
 				BD6349E72A6FAB9300F2F1AA /* Products */,
+				BDB34AAC2A7C065B00CEB4E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +215,7 @@
 		BD634A192A6FB23500F2F1AA /* Presentation modules */ = {
 			isa = PBXGroup;
 			children = (
+				BDB34AB32A7D18C500CEB4E3 /* ProfileRegistrationScene */,
 				BDCEC0D32A7806950008CA34 /* LoginScene */,
 				BDCEC0D22A779BE40008CA34 /* Onboarding */,
 				BDCEC0CF2A7785BF0008CA34 /* AuthorizationScene */,
@@ -221,7 +231,7 @@
 		BD634A1A2A6FB24C00F2F1AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BDB34AA42A7A4E5800CEB4E3 /* RelocateUser */,
+				BDB34AAF2A7CF08C00CEB4E3 /* UserTravel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB34AA82A7A795F00CEB4E3 /* AuthError.swift */,
+				BDB34AB12A7CF19500CEB4E3 /* UserError.swift */,
 				BDB34AA62A7A769D00CEB4E3 /* Validators.swift */,
 			);
 			path = Helpers;
@@ -270,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB34AA22A7A4B3100CEB4E3 /* AuthenticationService.swift */,
+				BDB34AAA2A7C05E800CEB4E3 /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -405,6 +417,21 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		BDB34AAC2A7C065B00CEB4E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDB34AB32A7D18C500CEB4E3 /* ProfileRegistrationScene */ = {
+			isa = PBXGroup;
+			children = (
+				BDB34AB42A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift */,
+			);
+			path = ProfileRegistrationScene;
+			sourceTree = "<group>";
+		};
 		BDCEC0C22A73D7130008CA34 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +485,7 @@
 				BD634A262A70044F00F2F1AA /* SnapKit */,
 				BDCEC0DA2A78E4C10008CA34 /* FirebaseAnalytics */,
 				BDCEC0DC2A78E4C10008CA34 /* FirebaseAuth */,
+				BDB34AAD2A7C065B00CEB4E3 /* FirebaseFirestore */,
 			);
 			productName = "Relocate Roadmap";
 			productReference = BD6349E62A6FAB9300F2F1AA /* Relocate Roadmap.app */;
@@ -591,10 +619,11 @@
 				BDCEC0C82A74035F0008CA34 /* LoginViewController.swift in Sources */,
 				BD68963C2A72B7E100561ACD /* ProfileTableViewCell.swift in Sources */,
 				BDB34AA92A7A795F00CEB4E3 /* AuthError.swift in Sources */,
+				BDB34AB52A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift in Sources */,
 				BD8ABFF72A73C46B00382D63 /* CustomTextField.swift in Sources */,
 				BD6349EA2A6FAB9300F2F1AA /* AppDelegate.swift in Sources */,
-				BDB34AA52A7A4E5800CEB4E3 /* RelocateUser in Sources */,
 				BD6896382A7295C700561ACD /* ChoosePartnerViewController.swift in Sources */,
+				BDB34AB02A7CF08C00CEB4E3 /* UserTravel.swift in Sources */,
 				BD634A212A6FFFF500F2F1AA /* ViewModel.swift in Sources */,
 				BD634A442A71049D00F2F1AA /* SearchButtonStyle.swift in Sources */,
 				BD634A472A7129AA00F2F1AA /* MediumButton.swift in Sources */,
@@ -609,11 +638,13 @@
 				BD6896362A72504500561ACD /* CustomSlider.swift in Sources */,
 				BD68963F2A72BF3D00561ACD /* ProfileDetailViewController.swift in Sources */,
 				BD8ABFF52A73A67600382D63 /* AuthorizationViewController.swift in Sources */,
+				BDB34AAB2A7C05E800CEB4E3 /* FirestoreService.swift in Sources */,
 				BDB34AA72A7A769D00CEB4E3 /* Validators.swift in Sources */,
 				BDCEC0CA2A7405CB0008CA34 /* RegistrationViewController.swift in Sources */,
 				BDCEC0C42A73D73D0008CA34 /* MediumTextField.swift in Sources */,
 				BD634A2F2A705BA700F2F1AA /* CustomFonts.swift in Sources */,
 				BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */,
+				BDB34AB22A7CF19500CEB4E3 /* UserError.swift in Sources */,
 				BDCEC0C62A73D8E60008CA34 /* PrimaryTextField.swift in Sources */,
 				BD8ABFF22A73056600382D63 /* MessageCell.swift in Sources */,
 			);
@@ -974,6 +1005,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD634A252A70044F00F2F1AA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BDB34AAD2A7C065B00CEB4E3 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDCEC0D92A78E4C10008CA34 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		BDCEC0DA2A78E4C10008CA34 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

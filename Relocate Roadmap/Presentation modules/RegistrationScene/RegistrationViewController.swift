@@ -52,7 +52,7 @@ final class RegistrationViewController: UIViewController {
 
     private let loginTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "E-mail он же и логин"
+        textField.placeholder = "E-mail"
         textField.borderStyle = .roundedRect
         return textField
     }()
@@ -118,7 +118,7 @@ final class RegistrationViewController: UIViewController {
     }
 
     private func goToTheNextScreen() {
-        let nextVC = ChoosingRelocationOptionViewController()
+        let nextVC = ProfileRegistrationViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
