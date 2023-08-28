@@ -77,7 +77,7 @@ final class RegistrationViewController: UIViewController {
     private lazy var registerButton: CustomButton = {
         let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) {
             self.registration()
-            self.goToTheNextScreen()
+           // self.goToTheNextScreen()
         }
         return button
     }()
@@ -117,10 +117,10 @@ final class RegistrationViewController: UIViewController {
 
     }
 
-    private func goToTheNextScreen() {
-        let nextVC = ProfileRegistrationViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+//    private func goToTheNextScreen() {
+//        let nextVC = ProfileRegistrationViewController()
+//        self.navigationController?.pushViewController(nextVC, animated: true)
+//    }
 
     // MARK: - Setup
 

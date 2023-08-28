@@ -28,3 +28,8 @@ struct UserTravel: Decodable {
         return rep
     }
 }
+
+struct Test {
+    var first: String?
+    var second: String?
+}

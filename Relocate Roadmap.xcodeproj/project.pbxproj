@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD5D3F432A8CDEE200A76F26 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5D3F422A8CDEE200A76F26 /* Coordinator.swift */; };
+		BD5D3F452A8CDF3400A76F26 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5D3F442A8CDF3400A76F26 /* AppCoordinator.swift */; };
 		BD6349EA2A6FAB9300F2F1AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349E92A6FAB9300F2F1AA /* AppDelegate.swift */; };
 		BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349EB2A6FAB9300F2F1AA /* SceneDelegate.swift */; };
 		BD6349EE2A6FAB9300F2F1AA /* ChoosingRelocationOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6349ED2A6FAB9300F2F1AA /* ChoosingRelocationOptionViewController.swift */; };
@@ -35,6 +37,13 @@
 		BD6896382A7295C700561ACD /* ChoosePartnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6896372A7295C700561ACD /* ChoosePartnerViewController.swift */; };
 		BD68963C2A72B7E100561ACD /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68963B2A72B7E100561ACD /* ProfileTableViewCell.swift */; };
 		BD68963F2A72BF3D00561ACD /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68963E2A72BF3D00561ACD /* ProfileDetailViewController.swift */; };
+		BD76C4CF2A9D0CC900901A77 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76C4CE2A9D0CC900901A77 /* ModuleFactory.swift */; };
+		BD76C4D12A9D0D9000901A77 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76C4D02A9D0D9000901A77 /* OnboardingCoordinator.swift */; };
+		BD76C4D32A9D134200901A77 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76C4D22A9D134200901A77 /* FlowController.swift */; };
+		BD76C4D52A9D22FE00901A77 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76C4D42A9D22FE00901A77 /* TutorialViewController.swift */; };
+		BD76C4D72A9D234900901A77 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76C4D62A9D234900901A77 /* FeaturesViewController.swift */; };
+		BD76C4D92A9D239F00901A77 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76C4D82A9D239F00901A77 /* PermissionsViewController.swift */; };
+		BD76C4DB2A9D23FD00901A77 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76C4DA2A9D23FD00901A77 /* DoneViewController.swift */; };
 		BD8ABFEF2A73050F00382D63 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8ABFEE2A73050F00382D63 /* ChatViewController.swift */; };
 		BD8ABFF22A73056600382D63 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8ABFF12A73056600382D63 /* MessageCell.swift */; };
 		BD8ABFF52A73A67600382D63 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8ABFF42A73A67600382D63 /* AuthorizationViewController.swift */; };
@@ -47,11 +56,12 @@
 		BDB34AB02A7CF08C00CEB4E3 /* UserTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AAF2A7CF08C00CEB4E3 /* UserTravel.swift */; };
 		BDB34AB22A7CF19500CEB4E3 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AB12A7CF19500CEB4E3 /* UserError.swift */; };
 		BDB34AB52A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AB42A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift */; };
+		BDB34AB92A81386600CEB4E3 /* ProfileRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB34AB82A81386600CEB4E3 /* ProfileRegistrationViewModel.swift */; };
 		BDCEC0C42A73D73D0008CA34 /* MediumTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0C32A73D73D0008CA34 /* MediumTextField.swift */; };
 		BDCEC0C62A73D8E60008CA34 /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0C52A73D8E60008CA34 /* PrimaryTextField.swift */; };
 		BDCEC0C82A74035F0008CA34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0C72A74035F0008CA34 /* LoginViewController.swift */; };
 		BDCEC0CA2A7405CB0008CA34 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0C92A7405CB0008CA34 /* RegistrationViewController.swift */; };
-		BDCEC0CC2A7406E10008CA34 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0CB2A7406E10008CA34 /* OnboardingViewController.swift */; };
+		BDCEC0CC2A7406E10008CA34 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0CB2A7406E10008CA34 /* WelcomeViewController.swift */; };
 		BDCEC0CE2A740D110008CA34 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0CD2A740D110008CA34 /* ChooseCountryViewController.swift */; };
 		BDCEC0D12A7795D00008CA34 /* SecondaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0D02A7795D00008CA34 /* SecondaryButtonStyle.swift */; };
 		BDCEC0D52A7811000008CA34 /* SmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEC0D42A7811000008CA34 /* SmallButton.swift */; };
@@ -78,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD5D3F422A8CDEE200A76F26 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BD5D3F442A8CDF3400A76F26 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BD6349E62A6FAB9300F2F1AA /* Relocate Roadmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocate Roadmap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6349E92A6FAB9300F2F1AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD6349EB2A6FAB9300F2F1AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +121,13 @@
 		BD6896372A7295C700561ACD /* ChoosePartnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePartnerViewController.swift; sourceTree = "<group>"; };
 		BD68963B2A72B7E100561ACD /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		BD68963E2A72BF3D00561ACD /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
+		BD76C4CE2A9D0CC900901A77 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
+		BD76C4D02A9D0D9000901A77 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		BD76C4D22A9D134200901A77 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		BD76C4D42A9D22FE00901A77 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		BD76C4D62A9D234900901A77 /* FeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewController.swift; sourceTree = "<group>"; };
+		BD76C4D82A9D239F00901A77 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		BD76C4DA2A9D23FD00901A77 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		BD8ABFEE2A73050F00382D63 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BD8ABFF12A73056600382D63 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		BD8ABFF42A73A67600382D63 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
@@ -120,11 +139,12 @@
 		BDB34AAF2A7CF08C00CEB4E3 /* UserTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTravel.swift; sourceTree = "<group>"; };
 		BDB34AB12A7CF19500CEB4E3 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		BDB34AB42A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegistrationViewController.swift; sourceTree = "<group>"; };
+		BDB34AB82A81386600CEB4E3 /* ProfileRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegistrationViewModel.swift; sourceTree = "<group>"; };
 		BDCEC0C32A73D73D0008CA34 /* MediumTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumTextField.swift; sourceTree = "<group>"; };
 		BDCEC0C52A73D8E60008CA34 /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		BDCEC0C72A74035F0008CA34 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDCEC0C92A7405CB0008CA34 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		BDCEC0CB2A7406E10008CA34 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		BDCEC0CB2A7406E10008CA34 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BDCEC0CD2A740D110008CA34 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		BDCEC0D02A7795D00008CA34 /* SecondaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonStyle.swift; sourceTree = "<group>"; };
 		BDCEC0D42A7811000008CA34 /* SmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButton.swift; sourceTree = "<group>"; };
@@ -160,6 +180,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD5D3F412A8CDEBA00A76F26 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				BD5D3F422A8CDEE200A76F26 /* Coordinator.swift */,
+				BD5D3F442A8CDF3400A76F26 /* AppCoordinator.swift */,
+				BD76C4D02A9D0D9000901A77 /* OnboardingCoordinator.swift */,
+				BD76C4D22A9D134200901A77 /* FlowController.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		BD6349DD2A6FAB9300F2F1AA = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +215,8 @@
 		BD6349E82A6FAB9300F2F1AA /* Relocate Roadmap */ = {
 			isa = PBXGroup;
 			children = (
+				BD76C4CD2A9D0CA200901A77 /* Factories */,
+				BD5D3F412A8CDEBA00A76F26 /* Coordinators */,
 				BD634A192A6FB23500F2F1AA /* Presentation modules */,
 				BD634A1A2A6FB24C00F2F1AA /* Models */,
 				BD634A1B2A6FB25300F2F1AA /* StoryBoard */,
@@ -391,6 +424,14 @@
 			path = ChatScene;
 			sourceTree = "<group>";
 		};
+		BD76C4CD2A9D0CA200901A77 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				BD76C4CE2A9D0CC900901A77 /* ModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 		BD8ABFF02A73054700382D63 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB34AB42A7D18FD00CEB4E3 /* ProfileRegistrationViewController.swift */,
+				BDB34AB82A81386600CEB4E3 /* ProfileRegistrationViewModel.swift */,
 			);
 			path = ProfileRegistrationScene;
 			sourceTree = "<group>";
@@ -452,7 +494,11 @@
 		BDCEC0D22A779BE40008CA34 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				BDCEC0CB2A7406E10008CA34 /* OnboardingViewController.swift */,
+				BDCEC0CB2A7406E10008CA34 /* WelcomeViewController.swift */,
+				BD76C4D42A9D22FE00901A77 /* TutorialViewController.swift */,
+				BD76C4D62A9D234900901A77 /* FeaturesViewController.swift */,
+				BD76C4D82A9D239F00901A77 /* PermissionsViewController.swift */,
+				BD76C4DA2A9D23FD00901A77 /* DoneViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -623,14 +669,20 @@
 				BD8ABFF72A73C46B00382D63 /* CustomTextField.swift in Sources */,
 				BD6349EA2A6FAB9300F2F1AA /* AppDelegate.swift in Sources */,
 				BD6896382A7295C700561ACD /* ChoosePartnerViewController.swift in Sources */,
+				BD76C4D72A9D234900901A77 /* FeaturesViewController.swift in Sources */,
 				BDB34AB02A7CF08C00CEB4E3 /* UserTravel.swift in Sources */,
 				BD634A212A6FFFF500F2F1AA /* ViewModel.swift in Sources */,
+				BDB34AB92A81386600CEB4E3 /* ProfileRegistrationViewModel.swift in Sources */,
 				BD634A442A71049D00F2F1AA /* SearchButtonStyle.swift in Sources */,
+				BD76C4DB2A9D23FD00901A77 /* DoneViewController.swift in Sources */,
+				BD76C4D32A9D134200901A77 /* FlowController.swift in Sources */,
+				BD5D3F432A8CDEE200A76F26 /* Coordinator.swift in Sources */,
 				BD634A472A7129AA00F2F1AA /* MediumButton.swift in Sources */,
 				BD634A382A70652C00F2F1AA /* Colors.swift in Sources */,
 				BDCEC0D52A7811000008CA34 /* SmallButton.swift in Sources */,
-				BDCEC0CC2A7406E10008CA34 /* OnboardingViewController.swift in Sources */,
+				BDCEC0CC2A7406E10008CA34 /* WelcomeViewController.swift in Sources */,
 				BD634A3C2A706EA400F2F1AA /* CustomButton.swift in Sources */,
+				BD76C4D52A9D22FE00901A77 /* TutorialViewController.swift in Sources */,
 				BDB34AA32A7A4B3100CEB4E3 /* AuthenticationService.swift in Sources */,
 				BD8ABFEF2A73050F00382D63 /* ChatViewController.swift in Sources */,
 				BD634A242A7000F600F2F1AA /* SetupFindPartnerViewController.swift in Sources */,
@@ -639,13 +691,17 @@
 				BD68963F2A72BF3D00561ACD /* ProfileDetailViewController.swift in Sources */,
 				BD8ABFF52A73A67600382D63 /* AuthorizationViewController.swift in Sources */,
 				BDB34AAB2A7C05E800CEB4E3 /* FirestoreService.swift in Sources */,
+				BD76C4D12A9D0D9000901A77 /* OnboardingCoordinator.swift in Sources */,
 				BDB34AA72A7A769D00CEB4E3 /* Validators.swift in Sources */,
 				BDCEC0CA2A7405CB0008CA34 /* RegistrationViewController.swift in Sources */,
 				BDCEC0C42A73D73D0008CA34 /* MediumTextField.swift in Sources */,
 				BD634A2F2A705BA700F2F1AA /* CustomFonts.swift in Sources */,
 				BD6349EC2A6FAB9300F2F1AA /* SceneDelegate.swift in Sources */,
+				BD5D3F452A8CDF3400A76F26 /* AppCoordinator.swift in Sources */,
 				BDB34AB22A7CF19500CEB4E3 /* UserError.swift in Sources */,
 				BDCEC0C62A73D8E60008CA34 /* PrimaryTextField.swift in Sources */,
+				BD76C4D92A9D239F00901A77 /* PermissionsViewController.swift in Sources */,
+				BD76C4CF2A9D0CC900901A77 /* ModuleFactory.swift in Sources */,
 				BD8ABFF22A73056600382D63 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

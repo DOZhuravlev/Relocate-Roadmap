@@ -1,14 +1,16 @@
 //
-//  OnboardingViewController.swift
+//  PermissionsViewController.swift
 //  Relocate Roadmap
 //
-//  Created by Zhuravlev Dmitry on 28.07.2023.
+//  Created by Zhuravlev Dmitry on 28.08.2023.
 //
 
 import UIKit
 import SnapKit
 
-final class OnboardingViewController: UIViewController {
+final class PermissionsViewController: UIViewController, FlowController {
+
+    var completionHandler: ((String?) -> ())?
 
     // MARK: - Outlets
 
@@ -42,7 +44,8 @@ final class OnboardingViewController: UIViewController {
     }()
 
     private lazy var startButton: CustomButton = {
-        let button = CustomButton(title: "Начать", type: .secondary, state: .standard, size: .medium) { [weak self] in
+        let button = CustomButton(title: "Fourth", type: .secondary, state: .standard, size: .medium) { [weak self] in
+            self!.completionHandler?("!!!!!!!!!!")
             let nextVC = AuthorizationViewController()
             self?.navigationController?.pushViewController(AuthorizationViewController(), animated: true)
         }
@@ -93,3 +96,4 @@ final class OnboardingViewController: UIViewController {
         }
     }
 }
+
