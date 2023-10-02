@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class RegistrationViewController: UIViewController {
 
@@ -35,22 +36,7 @@ final class RegistrationViewController: UIViewController {
         return button
     }()
 
-    private let firstNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Имя"
-        textField.borderStyle = .roundedRect
-        return textField
-    }()
-
-
-    private let lastNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Фамилия"
-        textField.borderStyle = .roundedRect
-        return textField
-    }()
-
-    private let loginTextField: UITextField = {
+    private let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "E-mail"
         textField.borderStyle = .roundedRect
@@ -65,19 +51,32 @@ final class RegistrationViewController: UIViewController {
         return textField
     }()
 
-    private let showHideButton: UIButton = {
+    private let confirmPasswordTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Подтвердите пароль"
+        textField.borderStyle = .roundedRect
+        textField.isSecureTextEntry = true
+        return textField
+    }()
+
+    private let showHidePasswordButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "eye_closed"), for: .normal)
         button.setImage(UIImage(named: "eye_open"), for: .selected)
         return button
     }()
 
-
+    private let showHideConfirmPasswordButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "eye_closed"), for: .normal)
+        button.setImage(UIImage(named: "eye_open"), for: .selected)
+        return button
+    }()
 
     private lazy var registerButton: CustomButton = {
         let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) {
             self.registration()
-           // self.goToTheNextScreen()
+            self.goToTheNextScreen()
         }
         return button
     }()
@@ -88,24 +87,38 @@ final class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-        setupShowHideButton()
+        setupShowHidePasswordButton()
+        setupShowHideConfirmPasswordButton()
     }
 
     // MARK: - Actions
 
-    private func setupShowHideButton() {
-        showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
+    private func setupShowHidePasswordButton() {
+        showHidePasswordButton.addTarget(self, action: #selector(showHidePasswordButtonTapped), for: .touchUpInside)
     }
 
-    @objc private func showHideButtonTapped() {
-        passwordTextField.isSecureTextEntry.toggle()
-        showHideButton.isSelected = !passwordTextField.isSecureTextEntry
+    private func setupShowHideConfirmPasswordButton() {
+        showHideConfirmPasswordButton.addTarget(self, action: #selector(showHideConfirmPasswordButtonTapped), for: .touchUpInside)
     }
+
+    @objc private func showHidePasswordButtonTapped() {
+        passwordTextField.isSecureTextEntry.toggle()
+        showHidePasswordButton.isSelected = !passwordTextField.isSecureTextEntry
+    }
+
+    @objc private func showHideConfirmPasswordButtonTapped() {
+        confirmPasswordTextField.isSecureTextEntry.toggle()
+        showHideConfirmPasswordButton.isSelected = !confirmPasswordTextField.isSecureTextEntry
+    }
+
+
+
+
 
     private func registration() {
-        AuthService.shared.register(email: loginTextField.text,
+        AuthService.shared.register(email: emailTextField.text,
                                     password: passwordTextField.text,
-                                    confirmPassword: passwordTextField.text) { result in
+                                    confirmPassword: confirmPasswordTextField.text) { result in
             switch result {
             case .success(let user):
                 self.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
@@ -114,13 +127,12 @@ final class RegistrationViewController: UIViewController {
                 self.showAlert(title: "Ошибка", message: error.localizedDescription)
             }
         }
-
     }
 
-//    private func goToTheNextScreen() {
-//        let nextVC = ProfileRegistrationViewController()
-//        self.navigationController?.pushViewController(nextVC, animated: true)
-//    }
+    private func goToTheNextScreen() {
+        let nextVC = SetupProfileRegistrationViewController(viewModel: ProfileRegistrationViewModel(currentUser: Auth.auth().currentUser!))
+       self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 
     // MARK: - Setup
 
@@ -129,11 +141,11 @@ final class RegistrationViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(loginWithMailButton)
         view.addSubview(loginWithGoogleButton)
-        view.addSubview(firstNameTextField)
-        view.addSubview(lastNameTextField)
-        view.addSubview(loginTextField)
+        view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(showHideButton)
+        view.addSubview(confirmPasswordTextField)
+        view.addSubview(showHidePasswordButton)
+        view.addSubview(showHideConfirmPasswordButton)
         view.addSubview(registerButton)
     }
 
@@ -157,39 +169,39 @@ final class RegistrationViewController: UIViewController {
             make.leading.trailing.height.equalTo(loginWithMailButton)
         }
 
-        firstNameTextField.snp.makeConstraints { make in
+        emailTextField.snp.makeConstraints { make in
             make.top.equalTo(loginWithGoogleButton.snp.bottom).offset(30)
             make.leading.trailing.equalTo(loginWithMailButton)
             make.height.equalTo(40)
         }
 
-        lastNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(firstNameTextField.snp.bottom).offset(10)
-            make.leading.trailing.equalTo(loginWithMailButton)
-            make.height.equalTo(40)
-        }
-
-        loginTextField.snp.makeConstraints { make in
-            make.top.equalTo(lastNameTextField.snp.bottom).offset(10)
-            make.leading.trailing.equalTo(loginWithMailButton)
-            make.height.equalTo(40)
-        }
-
         passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(loginTextField.snp.bottom).offset(10)
+            make.top.equalTo(emailTextField.snp.bottom).offset(10)
             make.leading.trailing.equalTo(loginWithMailButton)
             make.height.equalTo(40)
         }
 
-        showHideButton.snp.makeConstraints { make in
+        showHidePasswordButton.snp.makeConstraints { make in
             make.leading.equalTo(passwordTextField.snp.trailing).offset(-40)
             make.centerY.equalTo(passwordTextField)
             make.width.height.equalTo(30)
         }
 
+        confirmPasswordTextField.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(10)
+            make.leading.trailing.equalTo(loginWithMailButton)
+            make.height.equalTo(40)
+        }
+
+        showHideConfirmPasswordButton.snp.makeConstraints { make in
+            make.leading.equalTo(confirmPasswordTextField.snp.trailing).offset(-40)
+            make.centerY.equalTo(confirmPasswordTextField)
+            make.width.height.equalTo(30)
+        }
+
         registerButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(passwordTextField.snp.bottom).offset(30)
+            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(30)
             make.width.equalTo(150)
             make.height.equalTo(40)
         }

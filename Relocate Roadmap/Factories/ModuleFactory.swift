@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 class ModuleFactory {
 
-    func createWelcomeModule() -> WelcomeViewController {
-        WelcomeViewController()
+    func createWelcomeModule(coordinator: Coordinator) -> WelcomeViewController {
+        let viewModel = WelcomeViewModel()
+        return WelcomeViewController(viewModel: viewModel, coordinator: coordinator)
     }
 
     func createTutorialModule() -> TutorialViewController {

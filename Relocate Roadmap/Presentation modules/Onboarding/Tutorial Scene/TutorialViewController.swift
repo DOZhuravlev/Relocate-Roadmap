@@ -1,5 +1,5 @@
 //
-//  DoneViewController.swift
+//  TutorialViewController.swift
 //  Relocate Roadmap
 //
 //  Created by Zhuravlev Dmitry on 28.08.2023.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class DoneViewController: UIViewController, FlowController {
+final class TutorialViewController: UIViewController, FlowController {
 
     var completionHandler: ((String?) -> ())?
 
@@ -44,10 +44,9 @@ final class DoneViewController: UIViewController, FlowController {
     }()
 
     private lazy var startButton: CustomButton = {
-        let button = CustomButton(title: "Five", type: .secondary, state: .standard, size: .medium) { [weak self] in
+        let button = CustomButton(title: "SECOND", type: .secondary, state: .standard, size: .medium) { [weak self] in
             self!.completionHandler?("!!!!!!!!!!")
-            let nextVC = AuthorizationViewController()
-            self?.navigationController?.pushViewController(AuthorizationViewController(), animated: true)
+        
         }
         return button
     }()

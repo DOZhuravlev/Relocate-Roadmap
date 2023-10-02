@@ -10,20 +10,22 @@ import SnapKit
 
 final class WelcomeViewController: UIViewController, FlowController {
 
+    // MARK: - Properties
+
+    private var viewModel: WelcomeViewModelProtocol
+    private var coordinator: Coordinator
     var completionHandler: ((String?) -> ())?
 
     // MARK: - Outlets
 
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "onboarding1")
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     private let welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Добро пожаловать!"
         label.font = CustomFonts.MontserratBold.font(size: 24)
         label.textColor = Colors.backgroundWhite
         label.textAlignment = .center
@@ -32,7 +34,6 @@ final class WelcomeViewController: UIViewController, FlowController {
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Приложение поможет вам релоцироваться в другие страны и легко адаптироваться в новой среде."
         label.font = CustomFonts.MontserratSemiBold.font(size: 20)
         label.textColor = Colors.backgroundWhite
         label.textAlignment = .center
@@ -45,12 +46,25 @@ final class WelcomeViewController: UIViewController, FlowController {
 
     private lazy var startButton: CustomButton = {
         let button = CustomButton(title: "Начать", type: .secondary, state: .standard, size: .medium) { [weak self] in
-            self!.completionHandler?("!!!!!!!!!!")
-            let nextVC = AuthorizationViewController()
-            self?.navigationController?.pushViewController(AuthorizationViewController(), animated: true)
+            guard let self = self else { return }
+            self.completionHandler?("!!!!!!!!!!")
+//            let nextVC = AuthorizationViewController()
+//            self?.navigationController?.pushViewController(AuthorizationViewController(), animated: true)
         }
         return button
     }()
+
+    // MARK: - Init
+
+    init(viewModel: WelcomeViewModelProtocol, coordinator: Coordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Lifecycle
 
@@ -58,6 +72,15 @@ final class WelcomeViewController: UIViewController, FlowController {
         super.viewDidLoad()
         setupSubviews()
         setupConstraints()
+        bindViewModel()
+    }
+
+    // MARK: - Actions
+
+    private func bindViewModel() {
+        backgroundImageView.image = viewModel.backgroundImage
+        welcomeLabel.text = viewModel.welcomeLabelText
+        descriptionLabel.text = viewModel.descriptionLabelText
     }
 
     // MARK: - Setup

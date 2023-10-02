@@ -14,23 +14,39 @@ final class FirestoreService {
 
     let db = Firestore.firestore()
 
-    private var userRef: CollectionReference {
+    private var usersRef: CollectionReference {
         return db.collection("users")
     }
 
-    func saveProfileWith(id: String, email: String, userName: String, avatarImageString: String, description: String, gender: String, age: String, completion: @escaping (Result<UserTravel, Error>) -> Void) {
+    func getUserData(user: User, completion: @escaping (Result<UserApp, Error>) -> Void) {
+        let docRef = usersRef.document(user.uid)
+        docRef.getDocument { document, error in
+            if let document = document, document.exists {
+                guard let userApp = UserApp(document: document) else {
+                    completion(.failure(UserError.cannotUnwrapToUserApp))
+                    return
+                }
+                completion(.success(userApp))
+            } else {
+                completion(.failure(UserError.cannotGetUserInfo))
+            }
+        }
 
-        guard Validators.isFilled(userName: userName, description: description, gender: gender, age: age) else { completion(.failure(UserError.notFilled))
+    }
+
+    func saveProfileWith(id: String, email: String, userName: String?, avatarImageString: String?, description: String?, gender: String?, completion: @escaping (Result<UserApp, Error>) -> Void) {
+
+        guard Validators.isFilled(userName: userName, description: description, gender: gender) else { completion(.failure(UserError.notFilled))
             return
         }
 
-        let userTravel = UserTravel(userName: userName, email: email, avatarStringURL: avatarImageString, description: description, gender: gender, age: age, id: id)
+        let userApp = UserApp(userName: userName!, email: email, avatarStringURL: "NO", description: description!, gender: gender!, id: id)
 
-        userRef.document(userTravel.id).setData(userTravel.representation) { error in
+        usersRef.document(userApp.id).setData(userApp.representation) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
-                completion(.success(userTravel))
+                completion(.success(userApp))
             }
 
 

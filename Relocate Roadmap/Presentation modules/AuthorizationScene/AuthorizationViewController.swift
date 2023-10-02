@@ -66,19 +66,19 @@ final class AuthorizationViewController: UIViewController {
     private func setupConstraints() {
         topImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(5)
             make.width.equalTo(300)
             make.height.equalTo(300)
         }
 
         welcomeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(topImageView.snp.bottom).offset(70)
+            make.top.equalTo(topImageView.snp.bottom).offset(10)
         }
 
         registrationButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(welcomeLabel.snp.bottom).offset(50)
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(10)
             make.width.equalTo(200)
             make.height.equalTo(40)
         }

@@ -66,7 +66,6 @@ final class LoginViewController: UIViewController {
     private lazy var submitButton: CustomButton = {
         let button = CustomButton(title: "Войти", type: .primary, state: .standard, size: .medium) {
             self.authorization()
-            self.goToTheNextScreen()
         }
         return button
     }()
@@ -117,7 +116,18 @@ final class LoginViewController: UIViewController {
         AuthService.shared.login(email: loginTextField.text, password: passwordTextField.text) { result in
             switch result {
             case .success(let user):
-                self.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
+                self.showAlert(title: "Вход", message: "Выполнен!")
+                FirestoreService.shared.getUserData(user: user) { result in
+                    switch result {
+                    case .success(let userApp):
+                        // делать через координатор
+                        self.goToTheNextScreen()
+                    case .failure(let error):
+                        // делать через координатор
+                        let vc = SetupProfileRegistrationViewController(viewModel: ProfileRegistrationViewModel(currentUser: user))
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
                 print("\(user.email ?? "")")
             case .failure(let error):
                 self.showAlert(title: "Ошибка", message: error.localizedDescription)

@@ -8,12 +8,12 @@
 import UIKit
 import FirebaseAuth
 
-final class ProfileRegistrationViewController: UIViewController {
+final class SetupProfileRegistrationViewController: UIViewController {
 
     // MARK: - Properties
 
     private var viewModel: ProfileRegistrationViewModelProtocol!
-    var coordinator: AppCoordinator
+  //  var coordinator: AppCoordinator
 
     // MARK: - Outlets
 
@@ -113,6 +113,7 @@ final class ProfileRegistrationViewController: UIViewController {
 
     private lazy var doneButton: CustomButton = {
         let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) {
+            self.doneButtonPressed()
             self.goToTheNextScreen()
         }
         return button
@@ -120,9 +121,8 @@ final class ProfileRegistrationViewController: UIViewController {
 
     // MARK: - Init
 
-    init(viewModel: ProfileRegistrationViewModelProtocol, coordinator: AppCoordinator) {
+    init(viewModel: ProfileRegistrationViewModelProtocol) {
         self.viewModel = viewModel
-        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -134,7 +134,6 @@ final class ProfileRegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  viewModel = ProfileRegistrationViewModel()
         
         setupViews()
         setupConstraints()
@@ -167,13 +166,12 @@ final class ProfileRegistrationViewController: UIViewController {
         guard let userName = nameTextField.text,
               let description = aboutMeTextField.text else { return }
         let gender = genderSegmentedControl.titleForSegment(at: genderSegmentedControl.selectedSegmentIndex) ?? ""
-        let age = ageSlider.value
 
-        viewModel.saveProfile(userName: userName, description: description, gender: gender, age: age) { result in
+        viewModel.saveProfile(userName: userName, description: description, gender: gender) { result in
             switch result {
-            case .success(let userTravel):
-                self.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
-                print(userTravel)
+            case .success(let userApp):
+                self.showAlert(title: "Успешно", message: "Приятного пользования!")
+                print(userApp)
             case .failure(let error):
                 self.showAlert(title: "Ошибка", message: error.localizedDescription)
             }
@@ -216,7 +214,7 @@ final class ProfileRegistrationViewController: UIViewController {
 
     private func setupConstraints() {
         welcomeLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(0)
             make.centerX.equalTo(view)
         }
 
@@ -290,7 +288,7 @@ final class ProfileRegistrationViewController: UIViewController {
     }
 }
 
-extension ProfileRegistrationViewController {
+extension SetupProfileRegistrationViewController {
 
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

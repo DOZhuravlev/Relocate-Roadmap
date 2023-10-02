@@ -6,25 +6,69 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class AppCoordinator: Coordinator {
     var flowCompletionHandler: CoordinatorHandler?
-    
     var navigationController: UINavigationController
+
+    private var childCoordinators: [Coordinator] = []
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        showOnboardingScreen()
+
+        if let user = Auth.auth().currentUser {
+            FirestoreService.shared.getUserData(user: user) { result in
+                switch result {
+                case .success(_):
+                    self.showMainFlow()
+                case .failure(_):
+                    self.showOnboardingFlow()
+                }
+            }
+
+
+        } else {
+            showOnboardingFlow()
+        }
     }
 
-    func showOnboardingScreen() {
-        let profileRegistrationViewModel = ProfileRegistrationViewModel()
-        let profileRegistrationViewController = ProfileRegistrationViewController(viewModel: profileRegistrationViewModel, coordinator: self)
-        navigationController.pushViewController(profileRegistrationViewController, animated: true)
+    private func showOnboardingFlow() {
+
+        let onboardingCoordinator = CoordinatorFactory().createOnboardingCoordinator(navigationController: navigationController)
+        childCoordinators.append(onboardingCoordinator)
+
+        onboardingCoordinator.flowCompletionHandler = { [weak self] in
+            self?.showMainFlow()
+        }
+
+        onboardingCoordinator.start()
+
     }
+
+    private func showMainFlow() {
+
+        let mainCoordinator = MainCoordinator(navigationController: navigationController)
+        childCoordinators.append(mainCoordinator)
+
+        mainCoordinator.flowCompletionHandler = { [weak self] in
+            self?.showMainFlow()
+        }
+
+        mainCoordinator.start()
+
+    }
+
+
+    // MVVM
+    //    func showOnboardingScreen() {
+    //        let profileRegistrationViewModel = ProfileRegistrationViewModel()
+    //        let profileRegistrationViewController = ProfileRegistrationViewController(viewModel: profileRegistrationViewModel, coordinator: self)
+    //        navigationController.pushViewController(profileRegistrationViewController, animated: true)
+    //    }
 
 
 }

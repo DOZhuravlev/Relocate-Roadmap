@@ -21,16 +21,16 @@ protocol ProfileRegistrationViewModelProtocol: AnyObject {
     var ageSliderDefaultValue: Float { get }
     var ageValueLabelText: String { get }
 
-    func saveProfile(userName: String, description: String, gender: String, age: Float, completion: @escaping (Result<UserTravel, Error>) -> Void)
+    func saveProfile(userName: String, description: String, gender: String, completion: @escaping (Result<UserApp, Error>) -> Void)
 
 }
 
 final class ProfileRegistrationViewModel: ProfileRegistrationViewModelProtocol {
 
-    private var currentUser: User?
+    private var currentUser: User
 
-    init() {
-        fetchCurrentUser()
+    init(currentUser: User) {
+        self.currentUser = currentUser
     }
 
 
@@ -84,17 +84,16 @@ final class ProfileRegistrationViewModel: ProfileRegistrationViewModelProtocol {
             return "\(Int(ageSliderDefaultValue))"
         }
 
-        func saveProfile(userName: String, description: String, gender: String, age: Float, completion: @escaping (Result<UserTravel, Error>) -> Void) {
-            FirestoreService.shared.saveProfileWith(id: "",
-                                                    email: "",
+        func saveProfile(userName: String, description: String, gender: String, completion: @escaping (Result<UserApp, Error>) -> Void) {
+            FirestoreService.shared.saveProfileWith(id: currentUser.uid,
+                                                    email: currentUser.email!,
                                                     userName: userName,
                                                     avatarImageString: "nil",
                                                     description: description,
-                                                    gender: gender,
-                                                    age: "\(age)") { result in
+                                                    gender: gender) { result in
                 switch result {
-                case .success(let userTravel):
-                    completion(.success(userTravel))
+                case .success(let userApp):
+                    completion(.success(userApp))
                 case .failure(let error):
                     completion(.failure(error))
                 }

@@ -46,8 +46,7 @@ final class FeaturesViewController: UIViewController, FlowController {
     private lazy var startButton: CustomButton = {
         let button = CustomButton(title: "THIRD", type: .secondary, state: .standard, size: .medium) { [weak self] in
             self!.completionHandler?("!!!!!!!!!!")
-            let nextVC = AuthorizationViewController()
-            self?.navigationController?.pushViewController(AuthorizationViewController(), animated: true)
+          
         }
         return button
     }()
