@@ -12,7 +12,7 @@ struct EventCategory {
     var peoples: Int
 }
 
-struct Event {
+struct EventMock {
     var image: UIImage?
     var category: String
     var description: String

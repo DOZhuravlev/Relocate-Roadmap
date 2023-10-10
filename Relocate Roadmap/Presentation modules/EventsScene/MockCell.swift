@@ -1,15 +1,15 @@
 //
-//  SecondCell.swift
+//  MockCell.swift
 //  Relocate Roadmap
 //
-//  Created by Zhuravlev Dmitry on 27.09.2023.
+//  Created by Zhuravlev Dmitry on 06.10.2023.
 //
 
 import UIKit
 
-class SecondCell: UICollectionViewCell {
+class MockCell: UICollectionViewCell {
 
-    static let identifier = "secondCell"
+    static let identifier = "mockCell"
 
     // MARK: - Outlets
 
@@ -92,11 +92,10 @@ class SecondCell: UICollectionViewCell {
 
     }
 
-    func configuration(model: EventMock) {
-        image.image = model.image
-        firstLabel.text = model.category
-        secondLabel.text = model.description
-        thirdLabel.text = model.date
+    func configuration(model: UserApp) {
+        firstLabel.text = model.userName
+        secondLabel.text = model.email
+        thirdLabel.text = model.id
     }
 
     override func prepareForReuse() {
@@ -104,4 +103,3 @@ class SecondCell: UICollectionViewCell {
     }
 
 }
-

@@ -38,7 +38,7 @@ final class AuthorizationViewController: UIViewController {
     private lazy var authorizationButton: CustomButton = {
         let  button = CustomButton(title: "Войти", type: .secondary, state: .standard, size: .medium, action: {
                 let nextVC = RegistrationViewController()
-                self.navigationController?.pushViewController(LoginViewController(), animated: true)
+                self.navigationController?.pushViewController(ChoosingRelocationOptionViewController(), animated: true)
         })
         return button
     }()

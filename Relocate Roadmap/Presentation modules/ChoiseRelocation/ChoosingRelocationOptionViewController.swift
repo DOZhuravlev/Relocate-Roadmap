@@ -7,10 +7,13 @@
 
 import UIKit 
 import SnapKit
+import FirebaseAuth
 
 final class ChoosingRelocationOptionViewController: UIViewController {
 
     // MARK: - Outlets
+
+    let currentUser = Auth.auth().currentUser
 
     private let findPartnerImageView: UIImageView = {
         let view = UIImageView()
@@ -87,8 +90,21 @@ final class ChoosingRelocationOptionViewController: UIViewController {
 
     }
 
+
+
     @objc private func alreadyRelocatedImageViewTapped() {
         let nextVC = ChooseCountryViewController()
+
+
+
+        FirestoreService.shared.createEvent(id: currentUser?.uid ?? "0", description: "OXOXOXO") { result in
+            switch result {
+            case .success(let event):
+                print(event)
+            case .failure(let error):
+                print(error)
+            }
+        }
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 

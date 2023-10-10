@@ -130,7 +130,7 @@ final class RegistrationViewController: UIViewController {
     }
 
     private func goToTheNextScreen() {
-        let nextVC = SetupProfileRegistrationViewController(viewModel: ProfileRegistrationViewModel(currentUser: Auth.auth().currentUser!))
+        let nextVC = SetupProfileRegistrationViewController(viewModel: SetupProfileRegistrationViewModel(currentUser: Auth.auth().currentUser!))
        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 

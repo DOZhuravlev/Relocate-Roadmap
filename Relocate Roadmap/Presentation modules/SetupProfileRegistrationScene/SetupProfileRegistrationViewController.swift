@@ -12,7 +12,7 @@ final class SetupProfileRegistrationViewController: UIViewController {
 
     // MARK: - Properties
 
-    private var viewModel: ProfileRegistrationViewModelProtocol!
+    private var viewModel: SetupProfileRegistrationViewModelProtocol!
   //  var coordinator: AppCoordinator
 
     // MARK: - Outlets
@@ -121,7 +121,7 @@ final class SetupProfileRegistrationViewController: UIViewController {
 
     // MARK: - Init
 
-    init(viewModel: ProfileRegistrationViewModelProtocol) {
+    init(viewModel: SetupProfileRegistrationViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -140,6 +140,7 @@ final class SetupProfileRegistrationViewController: UIViewController {
         setupSlider()
         updateAgeValueLabel()
         bindViewModel()
+        plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
     }
 
     // MARK: - Actions
@@ -176,6 +177,13 @@ final class SetupProfileRegistrationViewController: UIViewController {
                 self.showAlert(title: "Ошибка", message: error.localizedDescription)
             }
         }
+    }
+
+    @objc private func plusButtonTapped() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
     }
 
     private func bindViewModel() {
@@ -288,12 +296,20 @@ final class SetupProfileRegistrationViewController: UIViewController {
     }
 }
 
-extension SetupProfileRegistrationViewController {
+extension SetupProfileRegistrationViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        viewModel.defaultProfileImage = image
+        bindViewModel()
+
     }
 }

@@ -1,15 +1,16 @@
 //
-//  SecondCell.swift
+//  ChatCell.swift
 //  Relocate Roadmap
 //
-//  Created by Zhuravlev Dmitry on 27.09.2023.
+//  Created by Zhuravlev Dmitry on 06.10.2023.
 //
 
+import Foundation
 import UIKit
 
-class SecondCell: UICollectionViewCell {
+class ChatCell: UICollectionViewCell {
 
-    static let identifier = "secondCell"
+    static let identifier = "ChatCell"
 
     // MARK: - Outlets
 
@@ -92,11 +93,10 @@ class SecondCell: UICollectionViewCell {
 
     }
 
-    func configuration(model: EventMock) {
-        image.image = model.image
-        firstLabel.text = model.category
-        secondLabel.text = model.description
-        thirdLabel.text = model.date
+    func configuration(model: UserChat) {
+        firstLabel.text = model.friendUsername
+        secondLabel.text = model.lastMessageContent
+
     }
 
     override func prepareForReuse() {
@@ -104,4 +104,3 @@ class SecondCell: UICollectionViewCell {
     }
 
 }
-

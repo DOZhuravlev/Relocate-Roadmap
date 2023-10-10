@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class LoginViewController: UIViewController {
 
     // MARK: - Outlets
@@ -116,15 +117,21 @@ final class LoginViewController: UIViewController {
         AuthService.shared.login(email: loginTextField.text, password: passwordTextField.text) { result in
             switch result {
             case .success(let user):
-                self.showAlert(title: "Вход", message: "Выполнен!")
+               // self.showAlert(title: "Вход", message: "Выполнен!")
+                let disp = DispatchQueue.main.async {
+                    let nextVC = MockViewController()
+                    self.present(nextVC, animated: true)
+                }
+
                 FirestoreService.shared.getUserData(user: user) { result in
                     switch result {
                     case .success(let userApp):
                         // делать через координатор
                         self.goToTheNextScreen()
+
                     case .failure(let error):
                         // делать через координатор
-                        let vc = SetupProfileRegistrationViewController(viewModel: ProfileRegistrationViewModel(currentUser: user))
+                        let vc = SetupProfileRegistrationViewController(viewModel: SetupProfileRegistrationViewModel(currentUser: user))
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
@@ -137,7 +144,8 @@ final class LoginViewController: UIViewController {
 
     private func goToTheNextScreen() {
         let nextVC = ChoosingRelocationOptionViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        present(nextVC, animated: true)
+        //self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
     // MARK: - Setup

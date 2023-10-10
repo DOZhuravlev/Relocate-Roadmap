@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 
-struct UserApp: Decodable {
+struct UserApp: Decodable, Equatable {
     var userName: String
     var email: String
     var avatarStringURL: String
@@ -28,6 +28,23 @@ struct UserApp: Decodable {
 
     init?(document: DocumentSnapshot) {
         guard let data = document.data() else { return nil }
+        guard let username = data["username"] as? String,
+              let avatarStringURL = data["avatarStringURL"] as? String,
+                let description = data["description"] as? String,
+                let gender = data["gender"] as? String,
+                let email = data["email"] as? String,
+                let id = data["uid"] as? String else { return nil }
+
+        self.userName = username
+        self.email = email
+        self.avatarStringURL = avatarStringURL
+        self.description = description
+        self.gender = gender
+        self.id = id
+    }
+
+    init?(document: QueryDocumentSnapshot) {
+        let data = document.data()
         guard let username = data["username"] as? String,
               let avatarStringURL = data["avatarStringURL"] as? String,
                 let description = data["description"] as? String,

@@ -10,16 +10,16 @@ import UIKit
 
 final class EventListCategoryViewController: UIViewController {
 
-    private var events: [Event] =
-        [Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен в тени ааа", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера")
+    private var events: [EventMock] =
+        [EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен в тени ааа", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера")
                ]
 
     //MARK: - Outlets

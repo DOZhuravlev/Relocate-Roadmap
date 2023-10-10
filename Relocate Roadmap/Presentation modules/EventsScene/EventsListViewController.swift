@@ -12,7 +12,7 @@ final class EventsListViewController: UIViewController {
 
     enum Section {
         case eventCategory([EventCategory])
-        case event([Event])
+        case event([EventMock])
 
         var count: Int {
             switch self {
@@ -31,15 +31,15 @@ final class EventsListViewController: UIViewController {
                         EventCategory(image: UIImage(named: "onboarding"), peoples: 5),
                         EventCategory(image: UIImage(named: "onboarding"), peoples: 5),
                         EventCategory(image: UIImage(named: "onboarding"), peoples: 5)]),
-        .event([Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен в тени ааа", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
-                Event(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера")
+        .event([EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен в тени ааа", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера"),
+                EventMock(image: UIImage(named: "onboarding"), category: "Кино", description: "Собираю всех на фильма спайдер мен", date: "завтра в 10:00 вечера")
                ])
     ]
 
