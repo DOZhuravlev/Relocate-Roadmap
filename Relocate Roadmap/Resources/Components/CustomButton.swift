@@ -25,6 +25,10 @@ protocol CustomButtonSize {
     var buttonWidth: CGFloat { get }
 }
 
+protocol CustomButtonDelegate: AnyObject {
+    func showAlert(title: String, message: String)
+}
+
 enum CustomButtonState {
     case standard
     case pressed
@@ -38,6 +42,8 @@ final class CustomButton: UIView {
     private let action: () -> Void
 
     private let button = UIButton(frame: .zero)
+
+    weak var delegate: CustomButtonDelegate?
 
     init(title: String, type: CustomButtonType, state: CustomButtonState, size: CustomButtonSize, action: @escaping () -> Void) {
         self.title = title
@@ -103,5 +109,6 @@ private extension CustomButton {
         action()
     }
 }
+
 
 

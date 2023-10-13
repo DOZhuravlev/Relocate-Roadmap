@@ -8,7 +8,13 @@
 import UIKit
 
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController, FlowController {
+
+    // MARK: - Properties
+
+    private var viewModel: LoginViewModelProtocol
+    private var coordinator: Coordinator
+    var completionHandler: ((String?) -> ())?
 
     // MARK: - Outlets
 
@@ -64,12 +70,26 @@ final class LoginViewController: UIViewController {
         return button
     }()
 
-    private lazy var submitButton: CustomButton = {
+    private lazy var enterButton: CustomButton = {
         let button = CustomButton(title: "Войти", type: .primary, state: .standard, size: .medium) {
-            self.authorization()
+            //self.authorization()
+            self.viewModel.authorization(findUserCompletion: { [weak self] success in
+                if success {
+                    print("Успешно авторизован")
+                    // вызываем иф елс авторизация(в ней комлишн координатора)
+                } else {
+                    print("Ошибка авторизации")
+                    // здесь комплишн для координатора для перехода на настройку профиля
+                    self?.showAlert(title: "Ошибка", message: "Логин или пароль неверные")
+                }
+            }, failureCompletion: { error in
+                self.showAlert(title: "Ошибка", message: error.localizedDescription)
+            })
         }
         return button
     }()
+
+
 
     private let noAccountLabel: UILabel = {
         let label = UILabel()
@@ -82,11 +102,23 @@ final class LoginViewController: UIViewController {
 
     private lazy var registerButton: CustomButton = {
         let button = CustomButton(title: "Зарегистрироваться", type: .help, state: .standard, size: .small) {
-            let nextVC = RegistrationViewController()
-            self.navigationController?.pushViewController(nextVC, animated: true)
+//            let nextVC = RegistrationViewController()
+//            self.navigationController?.pushViewController(nextVC, animated: true)
         }
         return button
     }()
+
+    // MARK: - Init
+
+    init(viewModel: LoginViewModelProtocol, coordinator: Coordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Lifecycle
 
@@ -95,6 +127,9 @@ final class LoginViewController: UIViewController {
             setupViews()
             setupShowHideButton()
             setupConstraints()
+            bindViewModel()
+            enterButton.delegate = self
+
         }
 
     // MARK: - Actions
@@ -109,43 +144,27 @@ final class LoginViewController: UIViewController {
     }
 
     @objc func registerButtonPressed() {
-        let nextVC = ChoosingRelocationOptionViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+//        let nextVC = ChoosingRelocationOptionViewController()
+//        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
-    private func authorization() {
-        AuthService.shared.login(email: loginTextField.text, password: passwordTextField.text) { result in
-            switch result {
-            case .success(let user):
-               // self.showAlert(title: "Вход", message: "Выполнен!")
-                let disp = DispatchQueue.main.async {
-                    let nextVC = MockViewController()
-                    self.present(nextVC, animated: true)
-                }
+    func bindViewModel() {
 
-                FirestoreService.shared.getUserData(user: user) { result in
-                    switch result {
-                    case .success(let userApp):
-                        // делать через координатор
-                        self.goToTheNextScreen()
+        loginTextField.addTarget(self, action: #selector(loginTextFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(passwordTextFieldDidChange(_:)), for: .editingChanged)
 
-                    case .failure(let error):
-                        // делать через координатор
-                        let vc = SetupProfileRegistrationViewController(viewModel: SetupProfileRegistrationViewModel(currentUser: user))
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-                print("\(user.email ?? "")")
-            case .failure(let error):
-                self.showAlert(title: "Ошибка", message: error.localizedDescription)
+    }
+
+    @objc private func loginTextFieldDidChange(_ textField: UITextField) {
+            if let text = textField.text {
+                viewModel.login = text
             }
         }
-    }
 
-    private func goToTheNextScreen() {
-        let nextVC = ChoosingRelocationOptionViewController()
-        present(nextVC, animated: true)
-        //self.navigationController?.pushViewController(nextVC, animated: true)
+    @objc private func passwordTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            viewModel.password = text
+        }
     }
 
     // MARK: - Setup
@@ -159,7 +178,7 @@ final class LoginViewController: UIViewController {
             view.addSubview(passwordTextField)
             view.addSubview(showHideButton)
             view.addSubview(forgotPasswordButton)
-            view.addSubview(submitButton)
+            view.addSubview(enterButton)
             view.addSubview(noAccountLabel)
             view.addSubview(registerButton)
         }
@@ -207,7 +226,7 @@ final class LoginViewController: UIViewController {
                 make.trailing.equalTo(loginButton)
             }
 
-            submitButton.snp.makeConstraints { make in
+            enterButton.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
                 make.top.equalTo(forgotPasswordButton.snp.bottom).offset(20)
                 make.width.equalTo(150)
@@ -227,8 +246,7 @@ final class LoginViewController: UIViewController {
 
 }
 
-extension LoginViewController {
-
+extension LoginViewController: CustomButtonDelegate {
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)

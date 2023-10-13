@@ -108,7 +108,7 @@ final class ProfileDetailViewController: UIViewController {
     }
 
     private func goToTheNextScreen() {
-        let vc = ChatViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = ChatViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

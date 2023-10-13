@@ -151,6 +151,9 @@ extension ChatsListViewController: UICollectionViewDataSource, UICollectionViewD
         let chat = chats[indexPath.item]
         let chatsVC = ChatsViewController(user: currentUser, chat: chat)
         present(chatsVC, animated: true)
+     
+        
+        
 
     print("ТРЫНЬьььььь")
 

@@ -12,7 +12,7 @@ class OnboardingCoordinator: Coordinator {
     var navigationController: UINavigationController
     var flowCompletionHandler: CoordinatorHandler?
 
-    private let moduleFactory = ModuleFactory()
+    private let moduleFactory = OnboardingFactory()
     private var testData = Test(first: nil, second: nil, three: nil, four: nil, Five: nil)
 
     init(navigationController: UINavigationController) {

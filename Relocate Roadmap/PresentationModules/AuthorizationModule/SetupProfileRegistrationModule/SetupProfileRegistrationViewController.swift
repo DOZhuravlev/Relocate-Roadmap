@@ -8,18 +8,20 @@
 import UIKit
 import FirebaseAuth
 
-final class SetupProfileRegistrationViewController: UIViewController {
+final class SetupProfileRegistrationViewController: UIViewController, FlowController {
 
     // MARK: - Properties
 
-    private var viewModel: SetupProfileRegistrationViewModelProtocol!
-  //  var coordinator: AppCoordinator
+    private var viewModel: SetupProfileRegistrationViewModelProtocol
+    private var coordinator: Coordinator
+    var completionHandler: ((User?) -> ())?
 
     // MARK: - Outlets
 
     private let welcomeLabel: UILabel = {
         let label = UILabel()
         label.font = CustomFonts.MontserratBold.font(size: 24)
+        label.text = "Настройте ваш профиль!"
         label.textColor = Colors.textBlack
         label.textAlignment = .center
         return label
@@ -48,6 +50,7 @@ final class SetupProfileRegistrationViewController: UIViewController {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = CustomFonts.MontserratBold.font(size: 14)
+        label.text = "Имя"
         label.textColor = Colors.textBlack
         label.textAlignment = .center
         return label
@@ -56,6 +59,7 @@ final class SetupProfileRegistrationViewController: UIViewController {
     private let aboutMeLabel: UILabel = {
         let label = UILabel()
         label.font = CustomFonts.MontserratBold.font(size: 14)
+        label.text = "О себе"
         label.textColor = Colors.textBlack
         label.textAlignment = .center
         return label
@@ -64,6 +68,7 @@ final class SetupProfileRegistrationViewController: UIViewController {
     private let genderLabel: UILabel = {
         let label = UILabel()
         label.font = CustomFonts.MontserratBold.font(size: 14)
+        label.text = "Пол"
         label.textColor = Colors.textBlack
         label.textAlignment = .center
         return label
@@ -89,40 +94,18 @@ final class SetupProfileRegistrationViewController: UIViewController {
         return segmentedControl
     }()
 
-    private let ageLabel: UILabel = {
-        let label = UILabel()
-        label.font = CustomFonts.MontserratBold.font(size: 14)
-        label.textColor = Colors.textBlack
-        label.textAlignment = .center
-        return label
-    }()
-
-    private let ageSlider: UISlider = {
-        let slider = UISlider()
-        slider.tintColor = UIColor(red: 0, green: 0.81, blue: 0.79, alpha: 1)
-        return slider
-    }()
-
-    private let ageValueLabel: UILabel = {
-        let label = UILabel()
-        label.font = CustomFonts.MontserratBold.font(size: 14)
-        label.textColor = Colors.textBlack
-        label.textAlignment = .center
-        return label
-    }()
-
     private lazy var doneButton: CustomButton = {
         let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) {
             self.doneButtonPressed()
-            self.goToTheNextScreen()
         }
         return button
     }()
 
     // MARK: - Init
 
-    init(viewModel: SetupProfileRegistrationViewModelProtocol) {
+    init(viewModel: SetupProfileRegistrationViewModelProtocol, coordinator: Coordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -137,42 +120,18 @@ final class SetupProfileRegistrationViewController: UIViewController {
         
         setupViews()
         setupConstraints()
-        setupSlider()
-        updateAgeValueLabel()
         bindViewModel()
         plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
     }
 
     // MARK: - Actions
 
-    private func goToTheNextScreen() {
-        let nextVC = ChoosingRelocationOptionViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-
-    private func setupSlider() {
-        ageSlider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
-    }
-
-    @objc private func sliderValueChanged() {
-        updateAgeValueLabel()
-    }
-
-    private func updateAgeValueLabel() {
-        let age = Int(ageSlider.value)
-        ageValueLabel.text = "\(age)"
-    }
-
     private func doneButtonPressed() {
-        guard let userName = nameTextField.text,
-              let description = aboutMeTextField.text else { return }
-        let gender = genderSegmentedControl.titleForSegment(at: genderSegmentedControl.selectedSegmentIndex) ?? ""
-
-        viewModel.saveProfile(userName: userName, description: description, gender: gender) { result in
+        viewModel.saveProfile { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let userApp):
                 self.showAlert(title: "Успешно", message: "Приятного пользования!")
-                print(userApp)
             case .failure(let error):
                 self.showAlert(title: "Ошибка", message: error.localizedDescription)
             }
@@ -187,16 +146,37 @@ final class SetupProfileRegistrationViewController: UIViewController {
     }
 
     private func bindViewModel() {
-        welcomeLabel.text = viewModel.welcomeLabelText
+
         profileImageView.image = viewModel.defaultProfileImage
-        nameLabel.text = viewModel.nameLabelText
-        aboutMeLabel.text = viewModel.aboutMeLabelText
-        genderLabel.text = viewModel.genderLabelText
-        ageLabel.text = viewModel.ageLabelText
-        ageSlider.minimumValue = viewModel.ageSliderMinimumValue
-        ageSlider.maximumValue = viewModel.ageSliderMaximumValue
-        ageSlider.value = viewModel.ageSliderDefaultValue
-        ageValueLabel.text = viewModel.ageValueLabelText
+
+
+        nameTextField.addTarget(self, action: #selector(nameTextFieldDidChange(_:)), for: .editingChanged)
+        aboutMeTextField.addTarget(self, action: #selector(aboutMeTextFieldDidChange(_:)), for: .editingChanged)
+        genderSegmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+
+
+    }
+
+    @objc private func nameTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            viewModel.userName = text
+        }
+    }
+
+    @objc private func aboutMeTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            viewModel.description = text
+        }
+    }
+
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        let selectedIndex = sender.selectedSegmentIndex
+        if selectedIndex >= 0 && selectedIndex < sender.numberOfSegments {
+            let selectedGender = sender.titleForSegment(at: selectedIndex)
+            if let gender = selectedGender {
+                viewModel.gender = gender
+            }
+        }
     }
 
     // MARK: - Setup
@@ -212,9 +192,6 @@ final class SetupProfileRegistrationViewController: UIViewController {
         view.addSubview(nameTextField)
         view.addSubview(aboutMeTextField)
         view.addSubview(genderSegmentedControl)
-        view.addSubview(ageLabel)
-        view.addSubview(ageSlider)
-        view.addSubview(ageValueLabel)
         view.addSubview(doneButton)
     }
 
@@ -271,24 +248,8 @@ final class SetupProfileRegistrationViewController: UIViewController {
             make.trailing.equalTo(view.snp.trailing).offset(-30)
         }
 
-        ageLabel.snp.makeConstraints { make in
-            make.top.equalTo(genderSegmentedControl.snp.bottom).offset(20)
-            make.leading.equalTo(view.snp.leading).offset(30)
-        }
-
-        ageValueLabel.snp.makeConstraints { make in
-            make.top.equalTo(genderSegmentedControl.snp.bottom).offset(20)
-            make.leading.equalTo(ageLabel.snp.trailing).offset(30)
-        }
-
-        ageSlider.snp.makeConstraints { make in
-            make.top.equalTo(ageLabel.snp.bottom).offset(10)
-            make.leading.equalTo(view.snp.leading).offset(30)
-            make.trailing.equalTo(view.snp.trailing).offset(-30)
-        }
-
         doneButton.snp.makeConstraints { make in
-            make.top.equalTo(ageSlider.snp.bottom).offset(20)
+            make.top.equalTo(genderSegmentedControl.snp.bottom).offset(20)
             make.centerX.equalTo(view)
             make.width.equalTo(200)
             make.height.equalTo(40)

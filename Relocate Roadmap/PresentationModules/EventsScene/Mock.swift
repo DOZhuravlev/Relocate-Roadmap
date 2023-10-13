@@ -144,7 +144,27 @@ extension MockViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = userApp[indexPath.item]
 
+        let message = UserMessage(user: currentUser, content: "HELLO")
+
+
+
+        FirestoreService.shared.createChat(message: message, receiver: item) { result in
+            switch result {
+
+            case .success():
+                print("CREATE CHAAAAAAAATTTT")
+                let vc = ChatsListViewController()
+
+                self.present(vc, animated: true)
+            case .failure(_):
+                print("CДЕЛАТЬ АЛЕРТ ЧТО НЕУДАЕТСЯ СОЗДАТЬ ЧАТ")
+            }
+        }
+
+
+
         let vc = ChatsListViewController()
+
         self.present(vc, animated: true)
 
 

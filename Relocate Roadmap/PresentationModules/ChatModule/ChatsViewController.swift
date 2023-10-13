@@ -18,12 +18,15 @@ class ChatsViewController: MessagesViewController {
     private let user: UserApp
     private let chat: UserChat
 
+
     init(user: UserApp, chat: UserChat) {
         self.user = user
         self.chat = chat
+
         super.init(nibName: nil, bundle: nil)
 
         title = chat.friendUsername
+
     }
 
     required init?(coder: NSCoder) {
@@ -43,7 +46,7 @@ class ChatsViewController: MessagesViewController {
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
         }
 
-        messagesCollectionView.backgroundColor = .gray
+        messagesCollectionView.backgroundColor = .white
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -53,6 +56,7 @@ class ChatsViewController: MessagesViewController {
             switch result {
             case .success(let message):
                 self.insertNewMessage(message: message)
+                print("CООБЩЕНИЕ ТАКРОЕ ТО \(message)")
             case .failure(let error):
                 print(error)
             }
@@ -60,10 +64,18 @@ class ChatsViewController: MessagesViewController {
     }
 
     private func insertNewMessage(message: UserMessage) {
-        guard messages.contains(message) else { return }
+        guard !messages.contains(message) else { return }
         messages.append(message)
         messages.sort()
+        let isLatestMessage = messages.firstIndex(of: message) == (messages.count - 1)
+        let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
         messagesCollectionView.reloadData()
+
+        if shouldScrollToBottom {
+            DispatchQueue.main.async {
+                self.messagesCollectionView.scrollToLastItem()
+            }
+        }
     }
 
 }
@@ -119,23 +131,43 @@ extension ChatsViewController: MessagesDataSource {
         1
     }
 
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        if indexPath.item % 4 == 0 {
+            return NSAttributedString(
+            string: MessageKitDateFormatter.shared.string(from: message.sentDate),
+            attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+            NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        } else {
+            return nil
+        }
+    }
+
 }
 
 extension ChatsViewController: MessagesLayoutDelegate {
 
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 8)
+        return CGSize(width: 0, height: 10)
+    }
+
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        if (indexPath.item) % 4 == 0 {
+            return 30
+        } else {
+            return 0
+        }
     }
 }
 
 extension ChatsViewController: MessagesDisplayDelegate {
 
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        isFromCurrentSender(message: message) ? .white : UIColor(red: 201, green: 161, blue: 240, alpha: 255)
+        isFromCurrentSender(message: message) ? .white : #colorLiteral(red: 0.7882352941, green: 0.631372549, blue: 0.9411764706, alpha: 1)
     }
 
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        isFromCurrentSender(message: message) ? .black : .white
+        isFromCurrentSender(message: message) ? #colorLiteral(red: 0.2392156863, green: 0.2392156863, blue: 0.2392156863, alpha: 1) : .white
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         avatarView.isHidden = true
@@ -153,14 +185,19 @@ extension ChatsViewController: MessagesDisplayDelegate {
 extension ChatsViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         let message = UserMessage(user: user, content: text)
+
         FirestoreService.shared.sendMessage(chat: chat, message: message) { result in
             switch result {
+
             case .success():
                 self.messagesCollectionView.scrollToLastItem()
-            case .failure(let error):
+                print("Сообщение отправлено")
+            case .failure(_):
                 print("ОШИБКА")
             }
         }
+
+
         inputBar.inputTextView.text = ""
 
 
@@ -179,3 +216,17 @@ extension ChatsViewController: InputBarAccessoryViewDelegate {
 //    }
 }
 
+extension UIScrollView {
+
+    var isAtBottom: Bool {
+        return contentOffset.y >= verticalOffsetForBottom
+    }
+
+    var verticalOffsetForBottom: CGFloat {
+      let scrollViewHeight = bounds.height
+      let scrollContentSizeHeight = contentSize.height
+      let bottomInset = contentInset.bottom
+      let scrollViewBottomOffset = scrollContentSizeHeight + bottomInset - scrollViewHeight
+      return scrollViewBottomOffset
+    }
+}

@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import UIKit
 
-class ModuleFactory {
-
+final class OnboardingFactory {
     func createWelcomeModule(coordinator: Coordinator) -> WelcomeViewController {
         let viewModel = WelcomeViewModel()
         return WelcomeViewController(viewModel: viewModel, coordinator: coordinator)
@@ -30,5 +28,4 @@ class ModuleFactory {
     func createDoneModule() -> DoneViewController {
         DoneViewController()
     }
-
 }

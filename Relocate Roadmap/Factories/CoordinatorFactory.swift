@@ -15,4 +15,10 @@ class CoordinatorFactory {
     func createAppCoordinator(navigationController: UINavigationController) -> AppCoordinator {
         AppCoordinator(navigationController: navigationController)
     }
+    func createAuthorizationCoordinator(navigationController: UINavigationController) -> AuthorizationCoordinator {
+        AuthorizationCoordinator(navigationController: navigationController)
+    }
+
+
+
 }

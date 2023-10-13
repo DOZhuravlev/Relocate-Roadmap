@@ -29,8 +29,6 @@ class AppCoordinator: Coordinator {
                     self.showOnboardingFlow()
                 }
             }
-
-
         } else {
             showOnboardingFlow()
         }
@@ -51,14 +49,14 @@ class AppCoordinator: Coordinator {
 
     private func showMainFlow() {
 
-        let mainCoordinator = MainCoordinator(navigationController: navigationController)
-        childCoordinators.append(mainCoordinator)
+        let loginCoordinator = AuthorizationCoordinator(navigationController: navigationController)
+        childCoordinators.append(loginCoordinator)
 
-        mainCoordinator.flowCompletionHandler = { [weak self] in
+        loginCoordinator.flowCompletionHandler = { [weak self] in
             self?.showMainFlow()
         }
 
-        mainCoordinator.start()
+        loginCoordinator.start()
 
     }
 

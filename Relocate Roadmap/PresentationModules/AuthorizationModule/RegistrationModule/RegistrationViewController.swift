@@ -8,7 +8,13 @@
 import UIKit
 import FirebaseAuth
 
-final class RegistrationViewController: UIViewController {
+final class RegistrationViewController: UIViewController, FlowController {
+
+    // MARK: - Properties
+
+    private var viewModel: RegistrationViewModelProtocol
+    private var coordinator: Coordinator
+    var completionHandler: ((User?) -> ())?
 
     // MARK: - Outlets
 
@@ -74,12 +80,26 @@ final class RegistrationViewController: UIViewController {
     }()
 
     private lazy var registerButton: CustomButton = {
-        let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) {
+        let button = CustomButton(title: "Зарегистрироваться", type: .primary, state: .standard, size: .medium) { [weak self] in
+            guard let self else { return }
             self.registration()
-            self.goToTheNextScreen()
+
+
         }
         return button
     }()
+
+    // MARK: - Init
+
+    init(viewModel: RegistrationViewModelProtocol, coordinator: Coordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Lifecycle
 
@@ -89,6 +109,9 @@ final class RegistrationViewController: UIViewController {
         setupConstraints()
         setupShowHidePasswordButton()
         setupShowHideConfirmPasswordButton()
+        bindViewModel()
+
+        registerButton.delegate = self
     }
 
     // MARK: - Actions
@@ -111,27 +134,43 @@ final class RegistrationViewController: UIViewController {
         showHideConfirmPasswordButton.isSelected = !confirmPasswordTextField.isSecureTextEntry
     }
 
-
-
-
-
     private func registration() {
-        AuthService.shared.register(email: emailTextField.text,
-                                    password: passwordTextField.text,
-                                    confirmPassword: confirmPasswordTextField.text) { result in
+        viewModel.registration { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let user):
                 self.showAlert(title: "Регистрация", message: "Вы зарегистрированы!")
-                print("\(user.email ?? "")")
+                self.completionHandler?(user)
             case .failure(let error):
                 self.showAlert(title: "Ошибка", message: error.localizedDescription)
             }
         }
     }
 
-    private func goToTheNextScreen() {
-        let nextVC = SetupProfileRegistrationViewController(viewModel: SetupProfileRegistrationViewModel(currentUser: Auth.auth().currentUser!))
-       self.navigationController?.pushViewController(nextVC, animated: true)
+    func bindViewModel() {
+
+        emailTextField.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(passwordTextFieldDidChange(_:)), for: .editingChanged)
+        confirmPasswordTextField.addTarget(self, action: #selector(confirmPasswordTextFieldDidChange(_:)), for: .editingChanged)
+
+    }
+
+    @objc private func emailTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            viewModel.login = text
+        }
+    }
+
+    @objc private func passwordTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            viewModel.password = text
+        }
+    }
+
+    @objc private func confirmPasswordTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            viewModel.confirmPassword = text
+        }
     }
 
     // MARK: - Setup
@@ -208,8 +247,7 @@ final class RegistrationViewController: UIViewController {
     }
 }
 
-extension RegistrationViewController {
-
+extension RegistrationViewController: CustomButtonDelegate {
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)

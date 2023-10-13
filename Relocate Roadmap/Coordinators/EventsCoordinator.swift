@@ -22,8 +22,8 @@ class EventsCoordinator: Coordinator {
 
     private func showModule() {
 
-        let controller = RegistrationViewController()
-        navigationController.pushViewController(controller, animated: true)
+       // let controller = RegistrationViewController()
+        //navigationController.pushViewController(controller, animated: true)
     }
 
 }

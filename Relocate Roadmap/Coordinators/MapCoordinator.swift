@@ -22,7 +22,7 @@ class MapCoordinator: Coordinator {
 
     private func showModule() {
 
-        let controller = LoginViewController()
+        let controller = LoginViewController(viewModel: LoginViewModel(), coordinator: self)
         navigationController.pushViewController(controller, animated: true)
     }
 
